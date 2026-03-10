@@ -1,128 +1,98 @@
-# Fenner Tourenoptimierung
+# 🗺️ Fenner Route Visualizer
 
-Automatische Routenplanung mit Zeitfenstern (VRPTW) für Proben-Abholungen.
-Berechnet optimale Touren unter Berücksichtigung von Abholzeitfenstern, Depot-Einlieferzeiten und Fahrzeugkapazitäten.
+Interaktive Karte zur Visualisierung der Labor-Abholrouten von Dr. Fenner & Kollegen. Daten kommen live aus einem Google Sheet.
 
-## Voraussetzungen
+---
 
-- **Python 3.10+**
-- Internetverbindung (für OSRM-Routing)
+## Features
 
-## Installation
+- **Interaktive Karte** – farbkodierte Routen mit klickbaren Stops
+- **Stop-Details per Klick** – Name, Abholzeit, Firma, Labortage, aktive Tage, Adresse
+- **Tages-Filter** – Mo bis So; leer = Stop wird bedient, X = nicht bedient
+- **Touren-Filter** – alle Touren oder gezielt einzelne anzeigen
+- **Routen-Linien** – verbinden Stops in chronologischer Reihenfolge (nach Abholzeit)
+- **Live Google Sheet** – Daten werden automatisch alle 5 Minuten neu geladen
+- **Geocoding-Cache** – Adressen werden einmalig via Nominatim geocodiert und in `geocode_cache.json` gecacht; neue Adressen werden automatisch ergänzt
+
+---
+
+## Schnellstart
 
 ```bash
-# Repository klonen
-git clone <repo-url>
-cd fenner-route-optimizer
-
-# Virtuelle Umgebung erstellen & aktivieren
-python -m venv .venv
-.venv\Scripts\activate        # Windows
-# source .venv/bin/activate   # Linux / macOS
-
 # Abhängigkeiten installieren
-pip install -r requirements.txt
+.venv/bin/python -m pip install -r requirements.txt
+
+# App starten
+.venv/bin/streamlit run app.py
 ```
 
-## Starten
+Öffnet sich automatisch unter **http://localhost:8501**
 
-### Web-Oberfläche (empfohlen)
-
-```bash
-streamlit run app.py
-```
-
-Öffnet sich automatisch im Browser unter `http://localhost:8501`.
-
-1. In der **Sidebar** Depot-Koordinaten, Zeitfenster, Solver-Parameter und Kosten konfigurieren
-2. Excel-Datei hochladen
-3. **Berechnen** klicken
-4. Ergebnisse in den Tabs ansehen: Karte, Routen, Einsender, Kosten, Download
-
-### Kommandozeile
-
-```bash
-python main.py
-```
-
-Liest `src/einsender.xlsx` und erzeugt `solution.xlsx` + `solution_map.html` im Projektordner.
-
-## Excel-Input
-
-Die hochgeladene `.xlsx`-Datei muss folgende Spalten enthalten (Groß-/Kleinschreibung egal):
-
-| Spalte | Pflicht | Beschreibung | Beispiel |
-|---|:---:|---|---|
-| `lat` | ja | Breitengrad (WGS84) | `53.0752` |
-| `lon` | ja | Längengrad (WGS84) | `8.8077` |
-| `Abholung 1 von` | ja | Beginn Abholzeitfenster 1 | `08:00` |
-| `Abholung 1 bis` | ja | Ende Abholzeitfenster 1 | `10:00` |
-| `Abholung 2 von` | ja | Beginn Abholzeitfenster 2 (leer = keine 2. Abholung) | `14:00` |
-| `Abholung 2 bis` | ja | Ende Abholzeitfenster 2 (leer = keine 2. Abholung) | `16:00` |
-| `Einsender` | optional | Name des Einsenders | `Praxis Müller` |
-| `Adresse` | optional | Adresse für Anzeige | `Hauptstr. 12, 28195 Bremen` |
-| `id` oder `name` | optional | Eindeutige Kennung (Fallback wenn `Einsender` fehlt) | `E-0042` |
-| `service_min` | optional | Servicezeit vor Ort in Minuten (Default: 5) | `10` |
-
-### Hinweise zum Input
-
-- **Zeitformate**: `HH:MM` (z.B. `08:00`) oder vollständige Timestamps (`2026-01-07 08:00`)
-- **Zwei Abholungen**: Wenn beide Zeitfenster gefüllt sind, werden **zwei separate Pflicht-Stopps** erzeugt
-- **Eine Abholung**: Wenn nur Fenster 1 gefüllt ist (Fenster 2 leer), wird nur ein Stopp erzeugt
-- Leere Zeilen oder fehlende Koordinaten führen zu Fehlermeldungen
-
-## Konfiguration
-
-### Sidebar-Parameter (Web-UI)
-
-| Parameter | Default | Beschreibung |
-|---|---|---|
-| Depot-Koordinaten | 53.054218, 9.031621 | Standort des Labors |
-| Depot-Zeitfenster 1–3 | 11:00–11:30, 14:00–14:30, 17:30–18:00 | Einlieferzeiten am Depot |
-| Anzahl Fahrzeuge | 6 | Maximale Anzahl paralleler Touren |
-| Servicezeit | 5 min | Zeit pro Abholung vor Ort |
-| Max. Wartezeit | 240 min | Erlaubte Wartezeit, wenn Fahrer zu früh ankommt |
-| Max. Tourdauer | 240 min | Harte Obergrenze pro Tour (0 = unbegrenzt) |
-| Streckenkosten | 30 ct/km | Kosten pro Kilometer |
-| Zeitkosten | 35,00 EUR/h | Kosten pro Stunde (Fahrt + Wartezeit + Service) |
-
-### Routing-Provider
-
-Standardmäßig wird der **öffentliche OSRM-Server** verwendet (keine API-Keys nötig).
-
-Optional kann Google Routes genutzt werden:
-
-```bash
-set MATRIX_PROVIDER=GOOGLE
-set GOOGLE_MAPS_API_KEY=dein-api-key
-streamlit run app.py
-```
+---
 
 ## Projektstruktur
 
 ```
-fenner-route-optimizer/
-  app.py                  # Streamlit Web-Frontend
-  main.py                 # CLI-Einstieg
-  requirements.txt        # Python-Abhängigkeiten
-  src/
-    config.py             # Konfigurationsklassen (DepotConfig, SolveConfig)
-    io_excel.py           # Excel-Import, Zeitfenster-Parsing
-    matrix.py             # Fahrzeit-/Distanzmatrix (OSRM / Google)
-    solver.py             # OR-Tools VRPTW-Solver
-    route_stats.py        # Routen-Kennzahlen (Distanz, Zeit, Kosten)
-    export_excel.py       # Excel-Export der Lösung
-    export_map.py         # Interaktive Karte (Folium)
-    debug_checks.py       # Vorab-Validierung der Eingabedaten
+fenner-route-visualizer/
+├── app.py                  # Haupt-App (Streamlit UI + Karten-Logik)
+├── config.py               # Konfiguration (Sheet ID, Spalten, Farben)
+├── geocoder.py             # Geocoding: JSON-Cache + Nominatim-Fallback
+├── geocode_cache.json      # 502 Adressen gecacht (im Git committed)
+├── requirements.txt        # Python-Abhängigkeiten
+└── .claude/launch.json     # Claude Preview Konfiguration
 ```
+
+---
+
+## Google Sheet konfigurieren
+
+Das Sheet muss auf **„Jeder mit dem Link kann es ansehen"** gesetzt sein.
+
+Standard-Konfiguration in `config.py`:
+
+| Parameter | Wert |
+|---|---|
+| `SHEET_ID` | `1VQ5imSEh-L8zRClN8PBijPpuu-oGVm-LF8ioPRcsO1I` |
+| `DEFAULT_TAB` | `Gesamtliste beide sortiert Touren` |
+| Tab-GID | `1898711273` |
+
+Sheet-ID und Tab lassen sich auch direkt in der App-Sidebar ändern.
+
+### Sheet-Format
+
+| Spalte | Inhalt |
+|---|---|
+| `Straße Hs.-Nr.` | Straße + Hausnummer |
+| `PLZ` | Postleitzahl (Format: `D-XXXXX`) |
+| `Ort` | Stadt |
+| `Name` | Einsender-Name |
+| `Mo` – `So` | leer = wird bedient, `X` = wird **nicht** bedient |
+| `Zeit` | Abholzeit (Format: `07:30 Uhr`) |
+| `Tour-ID` | Routenkennung (z. B. `Rot`, `HNO-Nord`) |
+| `Firma` | Kurierdienst |
+| `Labortage 2025` | Anzahl Labortage |
+| `Adress-Info1` | Sonderhinweise zur Adresse |
+
+---
+
+## Geocoding
+
+Beim ersten Start werden alle Adressen via [Nominatim (OpenStreetMap)](https://nominatim.openstreetmap.org/) geocodiert. Das dauert bei ~500 Adressen ca. **10 Minuten** (Rate-Limit: 1 Anfrage/Sekunde).
+
+Die Ergebnisse werden in `geocode_cache.json` gespeichert – diese Datei ist im Git, damit alle Teammitglieder sofort davon profitieren.
+
+**Cache leeren:** Sidebar → Geocoding → „Cache leeren & neu geocoden"
+
+> **Hinweis:** 36 Adressen konnten nicht geocodiert werden, da sie Sonderangaben enthalten (z. B. „Depot: …", Stockwerkangaben). Diese Stops erscheinen nicht auf der Karte, sind aber in der Datentabelle sichtbar.
+
+---
 
 ## Abhängigkeiten
 
 | Paket | Zweck |
 |---|---|
-| `streamlit` | Web-Oberfläche |
-| `ortools` | Google OR-Tools – VRPTW-Solver |
-| `pandas` / `openpyxl` | Excel lesen & schreiben |
-| `folium` | Interaktive Kartendarstellung |
-| `requests` | HTTP-Anfragen an Routing-APIs |
-| `python-dateutil` | Flexibles Zeitformat-Parsing |
+| `streamlit` | Web-UI |
+| `pandas` | Datenverarbeitung |
+| `folium` | Interaktive Karten |
+| `streamlit-folium` | Folium in Streamlit einbetten |
+| `requests` | Nominatim-API-Anfragen |

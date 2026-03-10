@@ -1,321 +1,400 @@
-"""
-Streamlit Web-Frontend für die Fenner Tourenoptimierung.
-Starten: streamlit run app.py
-"""
-from __future__ import annotations
-
-import warnings
-from datetime import date, datetime, time as dt_time
-
-import pandas as pd
 import streamlit as st
-import streamlit.components.v1 as components
+import pandas as pd
+import folium
+from streamlit_folium import st_folium
+from pathlib import Path
 
-from src.config import DepotConfig, SolveConfig
-from src.io_excel import (
-    load_einsender_excel,
-    build_nodes_mandatory_both_windows,
-    depot_union_windows,
-)
-from src.matrix import build_matrices
-from src.solver import solve_vrptw, solve_vrptw_relaxed_soft_timewindows, fmt_min_to_hhmm
-from src.export_excel import export_solution_to_excel
-from src.route_stats import compute_route_totals
-from src.export_map import export_routes_map_html
-from src.debug_checks import (
-    check_basic_nodes,
-    check_depot_union,
-    check_matrix_sanity,
-    check_reachability_quick,
-    summarize_input,
+import config
+import geocoder
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Page config
+# ─────────────────────────────────────────────────────────────────────────────
+st.set_page_config(
+    page_title="Fenner Route Visualizer",
+    page_icon="🗺️",
+    layout="wide",
+    initial_sidebar_state="expanded",
 )
 
-warnings.filterwarnings("ignore", category=UserWarning, module="openpyxl")
+# ─────────────────────────────────────────────────────────────────────────────
+# Data loading
+# ─────────────────────────────────────────────────────────────────────────────
 
-# ── Seiten-Setup ────────────────────────────────────────────────────
-st.set_page_config(page_title="Fenner Tourenoptimierung", layout="wide")
-st.title("🚗 Fenner Tourenoptimierung")
-
-# ── Sidebar: Konfiguration ──────────────────────────────────────────
-with st.sidebar:
-    st.header("⚙️ Konfiguration")
-
-    st.subheader("Depot / Labor")
-    depot_lat = st.number_input("Breitengrad (lat)", value=53.054218, format="%.6f")
-    depot_lon = st.number_input("Längengrad (lon)", value=9.031621,  format="%.6f")
-
-    st.subheader("Depot-Zeitfenster")
-    c1, c2 = st.columns(2)
-    d1_von = c1.text_input("Fenster 1 von", "11:00")
-    d1_bis = c2.text_input("Fenster 1 bis", "11:30")
-    d2_von = c1.text_input("Fenster 2 von", "14:00")
-    d2_bis = c2.text_input("Fenster 2 bis", "14:30")
-    d3_von = c1.text_input("Fenster 3 von", "17:30")
-    d3_bis = c2.text_input("Fenster 3 bis", "18:00")
-
-    st.subheader("Solver")
-    num_vehicles  = st.number_input("Anzahl Fahrzeuge",        min_value=1, max_value=30,  value=6)
-    service_min   = st.number_input("Servicezeit (min)",        min_value=0, max_value=60,  value=5)
-    max_wait      = st.number_input("Max. Wartezeit (min)",     min_value=0, max_value=480, value=240)
-    max_route_dur = st.number_input("Max. Tourdauer (min)",     min_value=0, max_value=720, value=240,
-                                    help="0 = keine Begrenzung. Standard: 240 min (4 Stunden)")
-    ref_date      = st.date_input("Referenzdatum", value=date.today())
-
-    st.subheader("Kosten")
-    cost_ct_per_km = st.number_input("Streckenkosten (ct/km)", min_value=0, max_value=500, value=30,
-                                      help="Kosten pro gefahrenem Kilometer in Cent")
-    cost_eur_per_h = st.number_input("Zeitkosten (EUR/h)", min_value=0.0, max_value=200.0, value=35.0,
-                                      step=0.5, format="%.2f",
-                                      help="Kosten pro Stunde (Fahrzeit + Wartezeit + Service)")
-
-# ── Haupt-Bereich ───────────────────────────────────────────────────
-uploaded = st.file_uploader("📂 Einsender-Datei (.xlsx) hochladen", type=["xlsx"])
-run = st.button("🚀 Berechnen", type="primary", disabled=(uploaded is None))
-
-if not run or uploaded is None:
-    st.stop()
-
-# ── Konfiguration zusammenbauen ─────────────────────────────────────
-depot = DepotConfig(
-    lat=depot_lat, lon=depot_lon,
-    depot_1_von=d1_von, depot_1_bis=d1_bis,
-    depot_2_von=d2_von or None, depot_2_bis=d2_bis or None,
-    depot_3_von=d3_von or None, depot_3_bis=d3_bis or None,
-)
-solve_cfg = SolveConfig(
-    num_vehicles=num_vehicles,
-    reference_date=ref_date,
-    default_service_min=service_min,
-    max_wait_min=max_wait,
-    max_route_duration_min=max_route_dur,
-)
-# Basiszeit für Uhrzeitumrechnung (00:00 des Referenzdatums)
-time_origin = datetime.combine(ref_date, dt_time(0, 0))
-
-# ── Schritt 1: Daten laden ──────────────────────────────────────────
-with st.spinner("Lade Eingabedaten …"):
+@st.cache_data(ttl=300, show_spinner="Lade Google Sheet…")
+def load_sheet(sheet_id: str, gid: int) -> pd.DataFrame:
+    url = (
+        f"https://docs.google.com/spreadsheets/d/{sheet_id}"
+        f"/export?format=csv&gid={gid}"
+    )
     try:
-        df = load_einsender_excel(uploaded, solve_cfg)
-        coords, node_tws, service_mins, labels, node_senders, node_addresses, node_meta_df = (
-            build_nodes_mandatory_both_windows(depot, df, solve_cfg)
-        )
+        # Row 0 is the legend ("X = KEINE Abholung"), Row 1 is the actual header
+        df = pd.read_csv(url, dtype=str, header=1)
+        df = df.fillna("")
+        # Normalize column names (they may contain \n from multi-line headers)
+        df.columns = [c.replace("\n", " ").strip() for c in df.columns]
+        # Strip leading/trailing whitespace from all string columns
+        for col in df.select_dtypes(include="object").columns:
+            df[col] = df[col].str.strip()
+        return df
     except Exception as e:
-        st.error(f"Fehler beim Laden der Datei: {e}")
-        st.stop()
-
-if len(coords) <= 1:
-    st.error("Keine Abholfenster im Input gefunden – prüfe 'Abholung 1 von/bis'.")
-    st.stop()
-
-# ── Schritt 2: Matrix ───────────────────────────────────────────────
-with st.spinner("Berechne Fahrzeit-Matrix (OSRM) …"):
-    try:
-        time_matrix_min, dist_matrix_m = build_matrices(coords)
-    except Exception as e:
-        st.error(f"Fehler bei Matrix-Berechnung: {e}")
-        st.stop()
-
-# ── Schritt 3: Prechecks ────────────────────────────────────────────
-depot_windows = depot_union_windows(depot, solve_cfg)
-stats = summarize_input(df, node_meta_df)
-
-m1, m2, m3, m4 = st.columns(4)
-m1.metric("Einsender",     stats["einsender_rows"])
-m2.metric("Pflicht-Nodes", stats["mandatory_nodes_created"])
-m3.metric("Fahrzeuge",     num_vehicles)
-m4.metric("Leere Fenster", stats["tw1_empty"] + stats["tw2_empty"])
-
-problems = (
-    check_depot_union(depot_windows)
-    + check_basic_nodes(node_tws, labels)
-    + check_matrix_sanity(time_matrix_min)
-    + check_reachability_quick(node_tws, service_mins, time_matrix_min, depot_windows, labels)
-)
-if problems:
-    with st.expander(f"⚠️ {len(problems)} Precheck-Problem(e) gefunden", expanded=True):
-        for p in problems[:80]:
-            st.warning(p)
-
-# ── Schritt 4: Optimieren ───────────────────────────────────────────
-is_relaxed = False
-with st.spinner("Optimiere Routen …"):
-    try:
-        result = solve_vrptw(depot, solve_cfg, time_matrix_min, node_tws, service_mins)
-        routes = result["routes"]
-        st.success(f"✅ Harte Lösung gefunden – {len(routes)} Route(n).")
-
-    except RuntimeError as exc:
-        if str(exc) != "INFEASIBLE":
-            st.exception(exc)
-            st.stop()
-
-        st.error("❌ Keine harte Lösung. Berechne Debug-Relaxation …")
-        relaxed = solve_vrptw_relaxed_soft_timewindows(
-            depot, solve_cfg, time_matrix_min, node_tws, service_mins,
-            soft_penalty_per_min=1000,
+        st.error(f"Fehler beim Laden des Sheets: {e}")
+        st.info(
+            "Stelle sicher, dass das Sheet auf "
+            "**'Jeder mit dem Link kann es ansehen'** gesetzt ist."
         )
-        if relaxed is None:
-            st.error("Auch die Relaxierung liefert keine Lösung. Prüfe Matrix und Depotfenster.")
-            st.stop()
+        return pd.DataFrame()
 
-        routes     = relaxed["routes"]
-        is_relaxed = True
 
-        violations = relaxed["violations"]
-        with st.expander(f"🔎 {len(violations)} Zeitfenster-Verletzungen (relaxed)", expanded=True):
-            for v in violations[:20]:
-                s, e = v["tw"]
-                st.warning(
-                    f"**{labels[v['node']]}** @ {v['time_min']} min "
-                    f"(TW {s}–{e}) | zu spät: {v['late_min']} min | zu früh: {v['early_min']} min"
+# ─────────────────────────────────────────────────────────────────────────────
+# Helpers
+# ─────────────────────────────────────────────────────────────────────────────
+
+def is_active_on_day(row, day_col: str) -> bool:
+    """leer = wird bedient, X (oder beliebiger Text) = wird NICHT bedient."""
+    val = str(row.get(day_col, "")).strip()
+    return val == ""  # empty = active
+
+
+@st.cache_data
+def assign_tour_colors(tour_ids: tuple) -> dict:
+    palette = config.TOUR_COLOR_PALETTE
+    return {
+        tour_id: palette[i % len(palette)]
+        for i, tour_id in enumerate(sorted(tour_ids))
+    }
+
+
+def format_active_days(row) -> str:
+    active = [
+        config.DAY_LABELS[d]
+        for d in config.DAY_COLUMNS
+        if is_active_on_day(row, d)
+    ]
+    return ", ".join(active) if active else "–"
+
+
+def make_popup_html(row) -> str:
+    name = row.get(config.COL_NAME, "") or "–"
+    tour = row.get(config.COL_TOUR_ID, "") or "–"
+    zeit = row.get(config.COL_TIME, "") or "–"
+    firma = row.get(config.COL_FIRMA, "") or "–"
+    lab_days = row.get(config.COL_LAB_DAYS, "") or "–"
+    addr_info = row.get(config.COL_ADDRESS_INFO, "") or ""
+    on_demand = row.get(config.COL_ON_DEMAND, "") or ""
+    abc = row.get(config.COL_ABC, "") or ""
+
+    street = row.get(config.COL_STREET, "") or ""
+    plz = row.get(config.COL_PLZ, "") or ""
+    city = row.get(config.COL_CITY, "") or ""
+    address = f"{street}, {plz} {city}".strip(", ")
+
+    active_days_str = format_active_days(row)
+
+    rows_data = [
+        ("Tour", tour),
+        ("Abholzeit", zeit),
+        ("Firma", firma),
+        ("Labortage 2025", lab_days),
+        ("Aktive Tage", active_days_str),
+        ("Adresse", address),
+    ]
+    if on_demand:
+        rows_data.append(("Bei Bedarf", on_demand))
+    if addr_info:
+        rows_data.append(("Adress-Info", addr_info))
+    if abc:
+        rows_data.append(("ABC", abc))
+
+    table_rows = "".join(
+        f'<tr>'
+        f'<td style="padding:3px 10px 3px 0;color:#555;white-space:nowrap;vertical-align:top">'
+        f'<b>{label}</b></td>'
+        f'<td style="padding:3px 0;vertical-align:top">{value}</td>'
+        f'</tr>'
+        for label, value in rows_data
+    )
+
+    return f"""
+    <div style="font-family:sans-serif;font-size:13px;min-width:260px;max-width:370px">
+      <div style="font-weight:bold;font-size:15px;margin-bottom:8px;
+                  color:#1a1a2e;border-bottom:2px solid #eee;padding-bottom:6px">
+        {name}
+      </div>
+      <table style="border-collapse:collapse;width:100%">
+        {table_rows}
+      </table>
+    </div>
+    """
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Map builder
+# ─────────────────────────────────────────────────────────────────────────────
+
+def _parse_zeit_minutes(zeit_str: str) -> float:
+    """Parse '07:30 Uhr' → minutes since midnight for sorting. Returns inf if unparseable."""
+    val = str(zeit_str).replace(" Uhr", "").strip()
+    try:
+        h, m = val.split(":")
+        return int(h) * 60 + int(m)
+    except Exception:
+        return float("inf")
+
+
+def build_map(
+    df: pd.DataFrame,
+    tour_colors: dict,
+    show_lines: bool,
+) -> folium.Map:
+    df_geo = df.dropna(subset=["lat", "lon"]).copy()
+    df_geo["lat"] = df_geo["lat"].astype(float)
+    df_geo["lon"] = df_geo["lon"].astype(float)
+
+    if df_geo.empty:
+        center = [config.MAP_CENTER_LAT, config.MAP_CENTER_LON]
+        zoom = config.MAP_ZOOM
+    else:
+        center = [df_geo["lat"].mean(), df_geo["lon"].mean()]
+        lat_range = df_geo["lat"].max() - df_geo["lat"].min()
+        zoom = 12 if lat_range < 0.5 else (10 if lat_range < 2 else 8)
+
+    m = folium.Map(
+        location=center,
+        zoom_start=zoom,
+        tiles="CartoDB positron",
+    )
+
+    # Route lines (per tour, sorted by Abholzeit)
+    if show_lines:
+        for tour_id, group in df_geo.groupby(config.COL_TOUR_ID, sort=False):
+            color = tour_colors.get(tour_id, "#888888")
+            # Sort stops by Zeit (HH:MM Uhr) so lines follow the real route order
+            group = group.copy()
+            group["_sort_min"] = group[config.COL_TIME].apply(_parse_zeit_minutes)
+            group = group.sort_values("_sort_min")
+            coords = list(zip(group["lat"], group["lon"]))
+            if len(coords) > 1:
+                folium.PolyLine(
+                    coords,
+                    color=color,
+                    weight=3,
+                    opacity=0.65,
+                    tooltip=f"Tour: {tour_id}",
+                ).add_to(m)
+
+    # Stop markers
+    for _, row in df_geo.iterrows():
+        tour_id = row.get(config.COL_TOUR_ID, "")
+        color = tour_colors.get(tour_id, "#888888")
+        name = row.get(config.COL_NAME, "?") or "?"
+        zeit = row.get(config.COL_TIME, "") or ""
+
+        tooltip_html = (
+            f"<b>{name}</b><br>"
+            f"<span style='color:#666'>Tour: {tour_id}</span>"
+            + (f" &nbsp;|&nbsp; {zeit}" if zeit else "")
+        )
+
+        folium.CircleMarker(
+            location=[row["lat"], row["lon"]],
+            radius=8,
+            color="white",
+            weight=2,
+            fill=True,
+            fill_color=color,
+            fill_opacity=0.9,
+            tooltip=folium.Tooltip(tooltip_html, sticky=False),
+            popup=folium.Popup(make_popup_html(row), max_width=400),
+        ).add_to(m)
+
+    return m
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Sidebar
+# ─────────────────────────────────────────────────────────────────────────────
+
+def render_sidebar() -> tuple[str, int]:
+    st.sidebar.title("⚙️ Einstellungen")
+
+    # ── Sheet config ──────────────────────────────────────────────────────────
+    with st.sidebar.expander("📊 Google Sheet", expanded=False):
+        sheet_id = st.text_input(
+            "Sheet ID",
+            value=config.SHEET_ID,
+            help="Die ID aus der Google-Sheet-URL",
+        )
+        tab_names = list(config.SHEET_TABS.keys())
+        selected_tab = st.selectbox("Tab", options=tab_names, index=0)
+        gid = st.number_input(
+            "Tab GID",
+            value=int(config.SHEET_TABS[selected_tab]),
+            step=1,
+            format="%d",
+            help="GID aus der URL: ...#gid=XXXXXX",
+        )
+        if st.button("🔄 Sheet neu laden", use_container_width=True):
+            st.cache_data.clear()
+            st.rerun()
+
+    # ── Geocoding ─────────────────────────────────────────────────────────────
+    with st.sidebar.expander("📍 Geocoding", expanded=False):
+        cache_file = Path(config.GEOCODE_CACHE_FILE)
+        if cache_file.exists():
+            try:
+                import json
+                cache = json.loads(cache_file.read_text(encoding="utf-8"))
+                n_total = len(cache)
+                n_ok = sum(1 for v in cache.values() if v is not None)
+                n_fail = n_total - n_ok
+                st.caption(f"Cache: **{n_ok}** Adressen, {n_fail} fehlgeschlagen")
+            except Exception:
+                st.caption("Cache vorhanden")
+        else:
+            st.caption("Kein Cache vorhanden – wird beim Start erstellt.")
+
+        if st.button("🗑️ Cache leeren & neu geocoden", use_container_width=True):
+            cache_file.unlink(missing_ok=True)
+            st.success("Cache geleert.")
+            st.rerun()
+
+    return sheet_id, int(gid)
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Main app
+# ─────────────────────────────────────────────────────────────────────────────
+
+def main():
+    st.title("🗺️ Fenner Route Visualizer")
+
+    sheet_id, gid = render_sidebar()
+
+    # ── Load & geocode data ───────────────────────────────────────────────────
+    df_raw = load_sheet(sheet_id, gid)
+    if df_raw.empty:
+        st.warning("Keine Daten geladen.")
+        return
+
+    # Remove rows with no Tour-ID (empty header rows etc.)
+    df_raw = df_raw[df_raw[config.COL_TOUR_ID].str.strip() != ""].copy()
+
+    df, cache = geocoder.geocode_dataframe(df_raw)
+
+    # ── Tour metadata ─────────────────────────────────────────────────────────
+    all_tours = sorted(df[config.COL_TOUR_ID].unique().tolist())
+    tour_colors = assign_tour_colors(tuple(all_tours))
+
+    # ── Filter controls ───────────────────────────────────────────────────────
+    col_days, col_tours, col_opts = st.columns([3, 4, 2])
+
+    with col_days:
+        st.markdown("**Tage**")
+        day_cols = st.columns(7)
+        selected_days = []
+        for i, day in enumerate(config.DAY_COLUMNS):
+            if day_cols[i].checkbox(
+                day, value=True, key=f"day_{day}", label_visibility="visible"
+            ):
+                selected_days.append(day)
+
+    with col_tours:
+        st.markdown("**Touren**")
+        tour_mode = st.radio(
+            "tour_mode",
+            ["Alle Touren", "Auswahl"],
+            horizontal=True,
+            label_visibility="collapsed",
+        )
+        if tour_mode == "Auswahl":
+            selected_tours = st.multiselect(
+                "Touren auswählen",
+                options=all_tours,
+                default=all_tours[:1] if all_tours else [],
+                label_visibility="collapsed",
+            )
+        else:
+            selected_tours = all_tours
+
+    with col_opts:
+        st.markdown("**Optionen**")
+        show_lines = st.checkbox("Routen-Linien", value=True)
+
+    # ── Filter dataframe ──────────────────────────────────────────────────────
+    df_filtered = df[df[config.COL_TOUR_ID].isin(selected_tours)].copy()
+
+    if selected_days:
+        mask = df_filtered.apply(
+            lambda row: any(is_active_on_day(row, d) for d in selected_days),
+            axis=1,
+        )
+        df_filtered = df_filtered[mask]
+
+    # ── Status caption ────────────────────────────────────────────────────────
+    n_total = len(df_filtered)
+    n_geo = df_filtered.dropna(subset=["lat", "lon"]).shape[0]
+    n_missing = n_total - n_geo
+
+    status_parts = [f"**{n_total}** Stops"]
+    if n_missing > 0:
+        status_parts.append(f"⚠️ {n_missing} ohne Koordinaten")
+    st.caption("  ·  ".join(status_parts))
+
+    # ── Map ───────────────────────────────────────────────────────────────────
+    m = build_map(df_filtered, tour_colors, show_lines)
+    st_folium(
+        m,
+        use_container_width=True,
+        height=800,
+        returned_objects=[],
+        key=f"map_{','.join(selected_tours)}_{','.join(selected_days)}_{show_lines}",
+    )
+
+    # ── Legend ────────────────────────────────────────────────────────────────
+    if selected_tours:
+        st.markdown("---")
+        st.markdown("**Legende**")
+        # Show in rows of 6
+        chunk_size = 6
+        for i in range(0, len(selected_tours), chunk_size):
+            chunk = selected_tours[i : i + chunk_size]
+            cols = st.columns(chunk_size)
+            for j, tour_id in enumerate(chunk):
+                color = tour_colors.get(tour_id, "#888")
+                cols[j].markdown(
+                    f'<span style="display:inline-block;width:14px;height:14px;'
+                    f'background:{color};border-radius:50%;vertical-align:middle;'
+                    f'margin-right:5px"></span>'
+                    f'<span style="font-size:13px">{tour_id}</span>',
+                    unsafe_allow_html=True,
                 )
 
-# ── Schritt 5: Ergebnisse anzeigen ──────────────────────────────────
-tab_map, tab_routes, tab_einsender, tab_costs, tab_dl = st.tabs(
-    ["🗺️ Karte", "📋 Routen", "🏥 Einsender", "💰 Kosten", "📥 Download"]
-)
+    # ── Data table ────────────────────────────────────────────────────────────
+    with st.expander("📋 Datentabelle anzeigen", expanded=False):
+        display_cols = [
+            c
+            for c in [
+                config.COL_TOUR_ID,
+                config.COL_NAME,
+                config.COL_TIME,
+                config.COL_FIRMA,
+                config.COL_STREET,
+                config.COL_CITY,
+                *config.DAY_COLUMNS,
+                config.COL_LAB_DAYS,
+                config.COL_ADDRESS_INFO,
+            ]
+            if c in df_filtered.columns
+        ]
+        # Sort table by Tour-ID, then by Zeit (chronological)
+        df_table = df_filtered[display_cols].copy()
+        df_table["_sort_min"] = df_filtered[config.COL_TIME].apply(_parse_zeit_minutes)
+        df_table = df_table.sort_values(
+            [config.COL_TOUR_ID, "_sort_min"]
+        ).drop(columns=["_sort_min"]).reset_index(drop=True)
+        st.dataframe(df_table, use_container_width=True, height=400)
 
-# ── Tab: Karte ──────────────────────────────────────────────────────
-with tab_map:
-    m = export_routes_map_html(
-        routes=routes,
-        labels=labels,
-        coords=coords,
-        node_senders=node_senders,
-        node_addresses=node_addresses,
-        time_origin=time_origin,
-    )
-    components.html(m._repr_html_(), height=640)
 
-# ── Tab: Routen ─────────────────────────────────────────────────────
-with tab_routes:
-    for i, route in enumerate(routes, start=1):
-        n_stops = sum(1 for step in route if step[0] != 0)
-        with st.expander(f"Route #{i}  –  {n_stops} Stopp(s)", expanded=True):
-            rows = []
-            for step in route:
-                node = step[0]
-                tmin = int(step[1])
-                slack = int(step[2]) if len(step) > 2 else 0
-                rows.append({
-                    "Uhrzeit":   fmt_min_to_hhmm(solve_cfg.reference_date, tmin),
-                    "Einsender": node_senders[node] if node_senders[node] else "LABOR (Depot)",
-                    "Adresse":   node_addresses[node],
-                    "Wartezeit": f"{slack} min" if slack else "—",
-                })
-            st.dataframe(rows, use_container_width=True, hide_index=True)
-
-# ── Tab: Einsender ──────────────────────────────────────────────────
-with tab_einsender:
-    # Baue Mapping: node_index → (route_id, arrival_min)
-    node_to_route: dict[int, tuple[int, int]] = {}
-    for r_idx, route in enumerate(routes, start=1):
-        for step in route:
-            node = step[0]
-            tmin = int(step[1])
-            if node != 0:
-                node_to_route[node] = (r_idx, tmin)
-
-    einsender_rows = []
-    for _, meta in node_meta_df.iterrows():
-        node_idx = int(meta["node_index"])
-        route_id, arrival = node_to_route.get(node_idx, (None, None))
-
-        tw_s = fmt_min_to_hhmm(solve_cfg.reference_date, int(meta["tw_start_min"]))
-        tw_e = fmt_min_to_hhmm(solve_cfg.reference_date, int(meta["tw_end_min"]))
-
-        einsender_rows.append({
-            "Einsender":   meta.get("einsender_name", meta["einsender_id"]),
-            "Adresse":     meta.get("adresse", ""),
-            "Abholung":    f"Abh. {int(meta['pickup_no'])}",
-            "Route":       f"Route {route_id}" if route_id else "—",
-            "Ankunft":     fmt_min_to_hhmm(solve_cfg.reference_date, arrival) if arrival is not None else "—",
-            "Zeitfenster": f"{tw_s} – {tw_e}",
-        })
-
-    einsender_df = pd.DataFrame(einsender_rows)
-    st.dataframe(einsender_df, use_container_width=True, hide_index=True)
-
-# ── Tab: Kosten ────────────────────────────────────────────────────
-with tab_costs:
-    route_totals = compute_route_totals(routes, time_matrix_min, dist_matrix_m, service_mins)
-
-    cost_rows = []
-    sum_dist = 0.0
-    sum_drive = 0
-    sum_wait = 0
-    sum_service = 0
-    sum_time = 0
-    sum_cost_dist = 0.0
-    sum_cost_time = 0.0
-    sum_cost_total = 0.0
-
-    for rt in route_totals:
-        k_strecke = rt["total_dist_km"] * (cost_ct_per_km / 100.0)
-        k_zeit = rt["total_time_min"] * (cost_eur_per_h / 60.0)
-        k_gesamt = k_strecke + k_zeit
-
-        sum_dist += rt["total_dist_km"]
-        sum_drive += rt["total_drive_min"]
-        sum_wait += rt["total_wait_min"]
-        sum_service += rt["total_service_min"]
-        sum_time += rt["total_time_min"]
-        sum_cost_dist += k_strecke
-        sum_cost_time += k_zeit
-        sum_cost_total += k_gesamt
-
-        cost_rows.append({
-            "Route": f"Route {rt['route_id']}",
-            "Stopps": rt["n_stops"],
-            "Distanz (km)": f"{rt['total_dist_km']:.1f}",
-            "Fahrzeit (min)": rt["total_drive_min"],
-            "Wartezeit (min)": rt["total_wait_min"],
-            "Service (min)": rt["total_service_min"],
-            "Gesamtzeit (min)": rt["total_time_min"],
-            "Strecke (EUR)": f"{k_strecke:.2f}",
-            "Zeit (EUR)": f"{k_zeit:.2f}",
-            "Gesamt (EUR)": f"{k_gesamt:.2f}",
-        })
-
-    # Summenzeile
-    cost_rows.append({
-        "Route": "GESAMT",
-        "Stopps": sum(rt["n_stops"] for rt in route_totals),
-        "Distanz (km)": f"{sum_dist:.1f}",
-        "Fahrzeit (min)": sum_drive,
-        "Wartezeit (min)": sum_wait,
-        "Service (min)": sum_service,
-        "Gesamtzeit (min)": sum_time,
-        "Strecke (EUR)": f"{sum_cost_dist:.2f}",
-        "Zeit (EUR)": f"{sum_cost_time:.2f}",
-        "Gesamt (EUR)": f"{sum_cost_total:.2f}",
-    })
-
-    # Kennzahlen-Kacheln
-    k1, k2, k3, k4 = st.columns(4)
-    k1.metric("Gesamtkosten", f"{sum_cost_total:.2f} EUR")
-    k2.metric("davon Strecke", f"{sum_cost_dist:.2f} EUR")
-    k3.metric("davon Zeit", f"{sum_cost_time:.2f} EUR")
-    k4.metric("Gesamt-km", f"{sum_dist:.1f} km")
-
-    st.dataframe(cost_rows, use_container_width=True, hide_index=True)
-
-# ── Tab: Download ────────────────────────────────────────────────────
-with tab_dl:
-    excel_bytes = export_solution_to_excel(
-        day=solve_cfg.reference_date,
-        routes=routes,
-        labels=labels,
-        coords=coords,
-        node_meta_df=node_meta_df,
-        time_matrix_min=time_matrix_min,
-        dist_matrix_m=dist_matrix_m,
-        node_service_mins=service_mins,
-    )
-    fname = "solution_relaxed.xlsx" if is_relaxed else "solution.xlsx"
-    st.download_button(
-        label="📊 Excel herunterladen",
-        data=excel_bytes,
-        file_name=fname,
-        mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-    )
+if __name__ == "__main__":
+    main()

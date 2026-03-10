@@ -1,7 +1,5 @@
-pandas
-openpyxl
-requests
-python-dateutil
-ortools
-folium
-streamlit>=1.38.0
+streamlit>=1.32.0
+pandas>=2.0.0
+folium>=0.16.0
+streamlit-folium>=0.20.0
+requests>=2.31.0
