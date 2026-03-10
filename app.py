@@ -18,6 +18,33 @@ st.set_page_config(
 )
 
 # ─────────────────────────────────────────────────────────────────────────────
+# Basic Auth
+# ─────────────────────────────────────────────────────────────────────────────
+
+_AUTH_USER = "logistik"
+_AUTH_PASS = "limbach"
+
+
+def check_auth() -> bool:
+    """Show login form if not authenticated. Returns True if authenticated."""
+    if st.session_state.get("authenticated"):
+        return True
+
+    st.markdown("## 🔐 Anmeldung")
+    with st.form("login_form"):
+        username = st.text_input("Benutzername")
+        password = st.text_input("Passwort", type="password")
+        submitted = st.form_submit_button("Anmelden", use_container_width=True)
+        if submitted:
+            if username == _AUTH_USER and password == _AUTH_PASS:
+                st.session_state["authenticated"] = True
+                st.rerun()
+            else:
+                st.error("Ungültige Anmeldedaten.")
+    return False
+
+
+# ─────────────────────────────────────────────────────────────────────────────
 # Data loading
 # ─────────────────────────────────────────────────────────────────────────────
 
@@ -215,7 +242,8 @@ def build_map(
 # Sidebar
 # ─────────────────────────────────────────────────────────────────────────────
 
-def render_sidebar() -> tuple[str, int]:
+def render_sidebar(all_tours: list) -> tuple:
+    """Render sidebar and return (sheet_id, gid, selected_days, selected_tours, show_lines)."""
     st.sidebar.title("⚙️ Einstellungen")
 
     # ── Sheet config ──────────────────────────────────────────────────────────
@@ -238,6 +266,35 @@ def render_sidebar() -> tuple[str, int]:
             st.cache_data.clear()
             st.rerun()
 
+    # ── Day filter ────────────────────────────────────────────────────────────
+    with st.sidebar.expander("📅 Tage", expanded=True):
+        selected_days = []
+        for day in config.DAY_COLUMNS:
+            if st.checkbox(config.DAY_LABELS[day], value=True, key=f"day_{day}"):
+                selected_days.append(day)
+
+    # ── Tour filter ───────────────────────────────────────────────────────────
+    with st.sidebar.expander("🚗 Touren", expanded=True):
+        tour_mode = st.radio(
+            "tour_mode",
+            ["Alle Touren", "Auswahl"],
+            horizontal=True,
+            label_visibility="collapsed",
+        )
+        if tour_mode == "Auswahl":
+            selected_tours = st.multiselect(
+                "Touren auswählen",
+                options=all_tours,
+                default=all_tours[:1] if all_tours else [],
+                label_visibility="collapsed",
+            )
+        else:
+            selected_tours = all_tours
+
+    # ── Options ───────────────────────────────────────────────────────────────
+    with st.sidebar.expander("🔧 Optionen", expanded=False):
+        show_lines = st.checkbox("Routen-Linien anzeigen", value=True)
+
     # ── Geocoding ─────────────────────────────────────────────────────────────
     with st.sidebar.expander("📍 Geocoding", expanded=False):
         cache_file = Path(config.GEOCODE_CACHE_FILE)
@@ -259,7 +316,13 @@ def render_sidebar() -> tuple[str, int]:
             st.success("Cache geleert.")
             st.rerun()
 
-    return sheet_id, int(gid)
+    # ── Logout ────────────────────────────────────────────────────────────────
+    st.sidebar.markdown("---")
+    if st.sidebar.button("🚪 Abmelden", use_container_width=True):
+        st.session_state["authenticated"] = False
+        st.rerun()
+
+    return sheet_id, int(gid), selected_days, selected_tours, show_lines
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -267,14 +330,25 @@ def render_sidebar() -> tuple[str, int]:
 # ─────────────────────────────────────────────────────────────────────────────
 
 def main():
+    # Auth gate
+    if not check_auth():
+        return
+
     st.title("🗺️ Fenner Route Visualizer")
 
-    sheet_id, gid = render_sidebar()
+    # ── Load data (sheet_id/gid needed before sidebar filters) ────────────────
+    # We need a preliminary sidebar render for sheet config only.
+    # Use session state to persist sheet_id and gid across reruns.
+    if "sheet_id" not in st.session_state:
+        st.session_state["sheet_id"] = config.SHEET_ID
+    if "gid" not in st.session_state:
+        st.session_state["gid"] = int(list(config.SHEET_TABS.values())[0])
 
-    # ── Load & geocode data ───────────────────────────────────────────────────
-    df_raw = load_sheet(sheet_id, gid)
+    df_raw = load_sheet(st.session_state["sheet_id"], st.session_state["gid"])
     if df_raw.empty:
         st.warning("Keine Daten geladen.")
+        # Still render minimal sidebar so sheet config is accessible
+        render_sidebar([])
         return
 
     # Remove rows with no Tour-ID (empty header rows etc.)
@@ -286,40 +360,17 @@ def main():
     all_tours = sorted(df[config.COL_TOUR_ID].unique().tolist())
     tour_colors = assign_tour_colors(tuple(all_tours))
 
-    # ── Filter controls ───────────────────────────────────────────────────────
-    col_days, col_tours, col_opts = st.columns([3, 4, 2])
+    # ── Full sidebar (with filters) ───────────────────────────────────────────
+    sheet_id, gid, selected_days, selected_tours, show_lines = render_sidebar(all_tours)
 
-    with col_days:
-        st.markdown("**Tage**")
-        day_cols = st.columns(7)
-        selected_days = []
-        for i, day in enumerate(config.DAY_COLUMNS):
-            if day_cols[i].checkbox(
-                day, value=True, key=f"day_{day}", label_visibility="visible"
-            ):
-                selected_days.append(day)
+    # Persist sheet config in session state so it survives reruns
+    st.session_state["sheet_id"] = sheet_id
+    st.session_state["gid"] = gid
 
-    with col_tours:
-        st.markdown("**Touren**")
-        tour_mode = st.radio(
-            "tour_mode",
-            ["Alle Touren", "Auswahl"],
-            horizontal=True,
-            label_visibility="collapsed",
-        )
-        if tour_mode == "Auswahl":
-            selected_tours = st.multiselect(
-                "Touren auswählen",
-                options=all_tours,
-                default=all_tours[:1] if all_tours else [],
-                label_visibility="collapsed",
-            )
-        else:
-            selected_tours = all_tours
-
-    with col_opts:
-        st.markdown("**Optionen**")
-        show_lines = st.checkbox("Routen-Linien", value=True)
+    # ── Guard: no tour selected ───────────────────────────────────────────────
+    if not selected_tours:
+        st.info("👈 Bitte mindestens eine Tour in der Seitenleiste auswählen.")
+        return
 
     # ── Filter dataframe ──────────────────────────────────────────────────────
     df_filtered = df[df[config.COL_TOUR_ID].isin(selected_tours)].copy()
