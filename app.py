@@ -331,7 +331,7 @@ def main():
     if not check_auth():
         return
 
-    st.title("🗺️ Fenner Route Visualizer")
+    st.title("🗺️ Fenner Heidrich Routenvisualisierer")
 
     # ── Load data (sheet_id/gid needed before sidebar filters) ────────────────
     # We need a preliminary sidebar render for sheet config only.
