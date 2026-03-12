@@ -45,7 +45,11 @@ def _clean_plz(plz: str) -> str:
 
 
 def build_address(row: dict) -> str:
-    """Build a geocodable address string from a sheet row."""
+    """Build a geocodable address string from a sheet row.
+
+    The 'Straße' column already contains the full street incl. house number
+    (e.g. 'Bergstr. 14'). PLZ has no country prefix in the new sheet format.
+    """
     street = str(row.get(config.COL_STREET, "")).strip()
     plz = _clean_plz(str(row.get(config.COL_PLZ, "")).strip())
     city = str(row.get(config.COL_CITY, "")).strip()

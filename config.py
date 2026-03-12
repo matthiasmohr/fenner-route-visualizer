@@ -5,7 +5,7 @@ SHEET_ID = "1VQ5imSEh-L8zRClN8PBijPpuu-oGVm-LF8ioPRcsO1I"
 
 # Tab name → GID mapping. Find GID in the URL: ...#gid=XXXXXX
 SHEET_TABS = {
-    "Gesamtliste beide sortiert Touren": 1898711273,
+    "Gesamtliste beide sortiert Touren": 1652287,
 }
 
 DEFAULT_TAB = "Gesamtliste beide sortiert Touren"
@@ -27,18 +27,16 @@ MAP_ZOOM = 10
 # ─────────────────────────────────────────────────────────────────────────────
 # Column names (as they appear in the sheet)
 # ─────────────────────────────────────────────────────────────────────────────
-COL_STREET = "Straße Hs.-Nr."
-COL_PLZ = "PLZ"
-COL_CITY = "Ort"
-COL_NAME = "Name"
-COL_ABC = "ABC"
-COL_ON_DEMAND = "bei Bedarf"
-COL_TIME = "Zeit"
-COL_ADDRESS_INFO = "Adress-Info1"
-COL_RESULTS_DELIVERY = "Befunde Post Zust."
-COL_TOUR_ID = "Tour-ID"
-COL_FIRMA = "Firma"
-COL_LAB_DAYS = "Labortage 2025"
+COL_STREET       = "Straße"             # street incl. house number
+COL_PLZ          = "PLZ"
+COL_CITY         = "Ort"
+COL_NAME         = "Name Einsender"
+COL_TIME         = "Abholzeit Basis"    # e.g. "09:00 Uhr"
+COL_TIME_RANGE   = "Abholzeitspanne"    # e.g. "08:50 - 09:00"
+COL_ADDRESS_INFO = "Info"
+COL_TOUR_ID      = "Tour"
+COL_FIRMA        = "Firma"
+COL_LAB_DAYS     = "Labortage"
 
 # Day columns in the sheet (leer = wird bedient, X = wird NICHT bedient)
 DAY_COLUMNS = ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"]

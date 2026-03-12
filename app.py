@@ -55,8 +55,8 @@ def load_sheet(sheet_id: str, gid: int) -> pd.DataFrame:
         f"/export?format=csv&gid={gid}"
     )
     try:
-        # Row 0 is the legend ("X = KEINE Abholung"), Row 1 is the actual header
-        df = pd.read_csv(url, dtype=str, header=1)
+        # Row 0 is directly the header (no legend row in this sheet)
+        df = pd.read_csv(url, dtype=str, header=0)
         df = df.fillna("")
         # Normalize column names (they may contain \n from multi-line headers)
         df.columns = [c.replace("\n", " ").strip() for c in df.columns]
@@ -105,11 +105,10 @@ def make_popup_html(row) -> str:
     name = row.get(config.COL_NAME, "") or "–"
     tour = row.get(config.COL_TOUR_ID, "") or "–"
     zeit = row.get(config.COL_TIME, "") or "–"
+    zeit_range = row.get(config.COL_TIME_RANGE, "") or ""
     firma = row.get(config.COL_FIRMA, "") or "–"
     lab_days = row.get(config.COL_LAB_DAYS, "") or "–"
     addr_info = row.get(config.COL_ADDRESS_INFO, "") or ""
-    on_demand = row.get(config.COL_ON_DEMAND, "") or ""
-    abc = row.get(config.COL_ABC, "") or ""
 
     street = row.get(config.COL_STREET, "") or ""
     plz = row.get(config.COL_PLZ, "") or ""
@@ -122,16 +121,14 @@ def make_popup_html(row) -> str:
         ("Tour", tour),
         ("Abholzeit", zeit),
         ("Firma", firma),
-        ("Labortage 2025", lab_days),
+        ("Labortage", lab_days),
         ("Aktive Tage", active_days_str),
         ("Adresse", address),
     ]
-    if on_demand:
-        rows_data.append(("Bei Bedarf", on_demand))
+    if zeit_range:
+        rows_data.append(("Zeitspanne", zeit_range))
     if addr_info:
-        rows_data.append(("Adress-Info", addr_info))
-    if abc:
-        rows_data.append(("ABC", abc))
+        rows_data.append(("Info", addr_info))
 
     table_rows = "".join(
         f'<tr>'
@@ -429,6 +426,7 @@ def main():
                 config.COL_TOUR_ID,
                 config.COL_NAME,
                 config.COL_TIME,
+                config.COL_TIME_RANGE,
                 config.COL_FIRMA,
                 config.COL_STREET,
                 config.COL_CITY,
