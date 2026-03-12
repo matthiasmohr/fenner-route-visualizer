@@ -11,7 +11,7 @@ import geocoder
 # Page config
 # ─────────────────────────────────────────────────────────────────────────────
 st.set_page_config(
-    page_title="Fenner Route Visualizer",
+    page_title="Fenner Heidrich Routenvisualisierer",
     page_icon="🗺️",
     layout="wide",
     initial_sidebar_state="expanded",
