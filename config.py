@@ -52,6 +52,15 @@ DAY_LABELS = {
 }
 
 # ─────────────────────────────────────────────────────────────────────────────
+# Fenner / Heidrich color mode
+# ─────────────────────────────────────────────────────────────────────────────
+FENNER_COLOR   = "#1565C0"   # blue  – Stop hat Eintrag in Spalte "Firma"
+HEIDRICH_COLOR = "#C62828"   # red   – Stop hat KEINEN Eintrag in Spalte "Firma"
+
+COLOR_MODE_TOURS   = "Tour-Farben"
+COLOR_MODE_FIRMA   = "Fenner / Heidrich"
+
+# ─────────────────────────────────────────────────────────────────────────────
 # Tour colors – 20 visually distinct hex colors
 # ─────────────────────────────────────────────────────────────────────────────
 TOUR_COLOR_PALETTE = [

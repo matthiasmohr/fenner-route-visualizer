@@ -166,10 +166,18 @@ def _parse_zeit_minutes(zeit_str: str) -> float:
         return float("inf")
 
 
+def _stop_color(row, tour_colors: dict, color_mode: str) -> str:
+    """Return the fill color for a single stop depending on the active color mode."""
+    if color_mode == config.COLOR_MODE_FIRMA:
+        return config.FENNER_COLOR if str(row.get(config.COL_FIRMA, "")).strip() else config.HEIDRICH_COLOR
+    return tour_colors.get(str(row.get(config.COL_TOUR_ID, "")), "#888888")
+
+
 def build_map(
     df: pd.DataFrame,
     tour_colors: dict,
     show_lines: bool,
+    color_mode: str = config.COLOR_MODE_TOURS,
 ) -> folium.Map:
     df_geo = df.dropna(subset=["lat", "lon"]).copy()
     df_geo["lat"] = df_geo["lat"].astype(float)
@@ -192,8 +200,13 @@ def build_map(
     # Route lines (per tour, sorted by Abholzeit)
     if show_lines:
         for tour_id, group in df_geo.groupby(config.COL_TOUR_ID, sort=False):
-            color = tour_colors.get(tour_id, "#888888")
-            # Sort stops by Zeit (HH:MM Uhr) so lines follow the real route order
+            if color_mode == config.COLOR_MODE_FIRMA:
+                # Line color = majority of stops in this tour (Fenner vs. Heidrich)
+                n_fenner = group[config.COL_FIRMA].str.strip().ne("").sum()
+                line_color = config.FENNER_COLOR if n_fenner >= len(group) / 2 else config.HEIDRICH_COLOR
+            else:
+                line_color = tour_colors.get(tour_id, "#888888")
+
             group = group.copy()
             group["_sort_min"] = group[config.COL_TIME].apply(_parse_zeit_minutes)
             group = group.sort_values("_sort_min")
@@ -201,7 +214,7 @@ def build_map(
             if len(coords) > 1:
                 folium.PolyLine(
                     coords,
-                    color=color,
+                    color=line_color,
                     weight=3,
                     opacity=0.65,
                     tooltip=f"Tour: {tour_id}",
@@ -210,15 +223,23 @@ def build_map(
     # Stop markers
     for _, row in df_geo.iterrows():
         tour_id = row.get(config.COL_TOUR_ID, "")
-        color = tour_colors.get(tour_id, "#888888")
+        color = _stop_color(row, tour_colors, color_mode)
         name = row.get(config.COL_NAME, "?") or "?"
         zeit = row.get(config.COL_TIME, "") or ""
 
-        tooltip_html = (
-            f"<b>{name}</b><br>"
-            f"<span style='color:#666'>Tour: {tour_id}</span>"
-            + (f" &nbsp;|&nbsp; {zeit}" if zeit else "")
-        )
+        if color_mode == config.COLOR_MODE_FIRMA:
+            label = "Fenner" if str(row.get(config.COL_FIRMA, "")).strip() else "Heidrich"
+            tooltip_html = (
+                f"<b>{name}</b><br>"
+                f"<span style='color:#666'>{label} &nbsp;|&nbsp; Tour: {tour_id}</span>"
+                + (f" &nbsp;|&nbsp; {zeit}" if zeit else "")
+            )
+        else:
+            tooltip_html = (
+                f"<b>{name}</b><br>"
+                f"<span style='color:#666'>Tour: {tour_id}</span>"
+                + (f" &nbsp;|&nbsp; {zeit}" if zeit else "")
+            )
 
         folium.CircleMarker(
             location=[row["lat"], row["lon"]],
@@ -240,7 +261,7 @@ def build_map(
 # ─────────────────────────────────────────────────────────────────────────────
 
 def render_sidebar(all_tours: list) -> tuple:
-    """Render sidebar and return (sheet_id, gid, selected_days, selected_tours, show_lines)."""
+    """Render sidebar and return (sheet_id, gid, selected_days, selected_tours, show_lines, color_mode)."""
     st.sidebar.title("⚙️ Einstellungen")
 
     # ── Sheet config ──────────────────────────────────────────────────────────
@@ -291,6 +312,12 @@ def render_sidebar(all_tours: list) -> tuple:
     # ── Options ───────────────────────────────────────────────────────────────
     with st.sidebar.expander("🔧 Optionen", expanded=False):
         show_lines = st.checkbox("Routen-Linien anzeigen", value=True)
+        st.markdown("**Farbmodus**")
+        color_mode = st.radio(
+            "color_mode",
+            [config.COLOR_MODE_TOURS, config.COLOR_MODE_FIRMA],
+            label_visibility="collapsed",
+        )
 
     # ── Geocoding ─────────────────────────────────────────────────────────────
     with st.sidebar.expander("📍 Geocoding", expanded=False):
@@ -319,7 +346,7 @@ def render_sidebar(all_tours: list) -> tuple:
         st.session_state["authenticated"] = False
         st.rerun()
 
-    return sheet_id, int(gid), selected_days, selected_tours, show_lines
+    return sheet_id, int(gid), selected_days, selected_tours, show_lines, color_mode
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -358,7 +385,7 @@ def main():
     tour_colors = assign_tour_colors(tuple(all_tours))
 
     # ── Full sidebar (with filters) ───────────────────────────────────────────
-    sheet_id, gid, selected_days, selected_tours, show_lines = render_sidebar(all_tours)
+    sheet_id, gid, selected_days, selected_tours, show_lines, color_mode = render_sidebar(all_tours)
 
     # Persist sheet config in session state so it survives reruns
     st.session_state["sheet_id"] = sheet_id
@@ -390,20 +417,34 @@ def main():
     st.caption("  ·  ".join(status_parts))
 
     # ── Map ───────────────────────────────────────────────────────────────────
-    m = build_map(df_filtered, tour_colors, show_lines)
+    m = build_map(df_filtered, tour_colors, show_lines, color_mode)
     st_folium(
         m,
         use_container_width=True,
         height=800,
         returned_objects=[],
-        key=f"map_{','.join(selected_tours)}_{','.join(selected_days)}_{show_lines}",
+        key=f"map_{','.join(selected_tours)}_{','.join(selected_days)}_{show_lines}_{color_mode}",
     )
 
     # ── Legend ────────────────────────────────────────────────────────────────
-    if selected_tours:
-        st.markdown("---")
-        st.markdown("**Legende**")
-        # Show in rows of 6
+    st.markdown("---")
+    st.markdown("**Legende**")
+    if color_mode == config.COLOR_MODE_FIRMA:
+        # Two-color legend: Fenner / Heidrich
+        leg_cols = st.columns(2)
+        for col, label, color in [
+            (leg_cols[0], "Fenner (Firma vorhanden)", config.FENNER_COLOR),
+            (leg_cols[1], "Heidrich (kein Firma-Eintrag)", config.HEIDRICH_COLOR),
+        ]:
+            col.markdown(
+                f'<span style="display:inline-block;width:14px;height:14px;'
+                f'background:{color};border-radius:50%;vertical-align:middle;'
+                f'margin-right:5px"></span>'
+                f'<span style="font-size:13px">{label}</span>',
+                unsafe_allow_html=True,
+            )
+    else:
+        # Per-tour legend, shown in rows of 6
         chunk_size = 6
         for i in range(0, len(selected_tours), chunk_size):
             chunk = selected_tours[i : i + chunk_size]
