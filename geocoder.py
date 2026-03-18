@@ -6,6 +6,7 @@ null means geocoding was attempted but failed – won't be retried until cache i
 """
 
 import json
+import re
 import time
 from pathlib import Path
 
@@ -44,13 +45,24 @@ def _clean_plz(plz: str) -> str:
     return plz
 
 
-def build_address(row: dict) -> str:
-    """Build a geocodable address string from a sheet row.
+# Matches a house number at the end of a string: digits, optionally followed
+# by a letter suffix (e.g. "14", "14a", "14 a", "14-16").
+_HAS_HOUSE_NO = re.compile(r'\d+\s*[a-zA-Z]?\s*$')
 
-    The 'Straße' column already contains the full street incl. house number
-    (e.g. 'Bergstr. 14'). PLZ has no country prefix in the new sheet format.
-    """
+
+def build_street(row: dict) -> str:
+    """Return the full street string, appending the separate house-number column
+    when the street field doesn't already end with a number."""
     street = str(row.get(config.COL_STREET, "")).strip()
+    hausnr = str(row.get(config.COL_HOUSE_NUMBER, "")).strip()
+    if hausnr and not _HAS_HOUSE_NO.search(street):
+        street = f"{street} {hausnr}".strip()
+    return street
+
+
+def build_address(row: dict) -> str:
+    """Build a geocodable address string from a sheet row."""
+    street = build_street(row)
     plz = _clean_plz(str(row.get(config.COL_PLZ, "")).strip())
     city = str(row.get(config.COL_CITY, "")).strip()
     parts = [p for p in [street, plz, city] if p]

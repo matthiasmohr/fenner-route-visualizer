@@ -110,7 +110,7 @@ def make_popup_html(row) -> str:
     lab_days = row.get(config.COL_LAB_DAYS, "") or "–"
     addr_info = row.get(config.COL_ADDRESS_INFO, "") or ""
 
-    street = row.get(config.COL_STREET, "") or ""
+    street = geocoder.build_street(row)
     plz = row.get(config.COL_PLZ, "") or ""
     city = row.get(config.COL_CITY, "") or ""
     address = f"{street}, {plz} {city}".strip(", ")
@@ -340,6 +340,9 @@ def render_sidebar(all_tours: list) -> tuple:
             st.success("Cache geleert.")
             st.rerun()
 
+        if st.button("📋 Nicht lokalisierte Adressen", use_container_width=True):
+            st.session_state["show_missing"] = not st.session_state.get("show_missing", False)
+
     # ── Logout ────────────────────────────────────────────────────────────────
     st.sidebar.markdown("---")
     if st.sidebar.button("🚪 Abmelden", use_container_width=True):
@@ -411,10 +414,15 @@ def main():
     n_geo = df_filtered.dropna(subset=["lat", "lon"]).shape[0]
     n_missing = n_total - n_geo
 
-    status_parts = [f"**{n_total}** Stops"]
+    st.caption(f"**{n_total}** Stops")
+
     if n_missing > 0:
-        status_parts.append(f"⚠️ {n_missing} ohne Koordinaten")
-    st.caption("  ·  ".join(status_parts))
+        st.warning(
+            f"⚠️ {n_missing} von {n_total} Stops konnten nicht lokalisiert werden "
+            f"und fehlen auf der Karte – die angezeigte Tour ist unvollständig. "
+            f"Details unter **Geocoding → Nicht lokalisierte Adressen**.",
+            icon=None,
+        )
 
     # ── Map ───────────────────────────────────────────────────────────────────
     m = build_map(df_filtered, tour_colors, show_lines, color_mode)
@@ -458,6 +466,31 @@ def main():
                     f'<span style="font-size:13px">{tour_id}</span>',
                     unsafe_allow_html=True,
                 )
+
+    # ── Missing addresses table ───────────────────────────────────────────────
+    if st.session_state.get("show_missing", False):
+        df_missing_all = df[df["lat"].isna() | df["lon"].isna()].copy()
+        st.markdown("---")
+        st.markdown(f"**Nicht lokalisierte Adressen** ({len(df_missing_all)} gesamt)")
+        if df_missing_all.empty:
+            st.success("Alle Adressen konnten lokalisiert werden.")
+        else:
+            missing_cols = [
+                c for c in [
+                    config.COL_TOUR_ID,
+                    config.COL_NAME,
+                    config.COL_FIRMA,
+                    config.COL_STREET,
+                    config.COL_PLZ,
+                    config.COL_CITY,
+                    config.COL_ADDRESS_INFO,
+                ]
+                if c in df_missing_all.columns
+            ]
+            st.dataframe(
+                df_missing_all[missing_cols].sort_values(config.COL_TOUR_ID).reset_index(drop=True),
+                use_container_width=True,
+            )
 
     # ── Data table ────────────────────────────────────────────────────────────
     with st.expander("📋 Datentabelle anzeigen", expanded=False):

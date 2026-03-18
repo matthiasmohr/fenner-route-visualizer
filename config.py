@@ -27,7 +27,8 @@ MAP_ZOOM = 10
 # ─────────────────────────────────────────────────────────────────────────────
 # Column names (as they appear in the sheet)
 # ─────────────────────────────────────────────────────────────────────────────
-COL_STREET       = "Straße"             # street incl. house number
+COL_STREET       = "Straße"             # street, sometimes incl. house number
+COL_HOUSE_NUMBER = "Hausnummer"         # separate house number column (may be empty)
 COL_PLZ          = "PLZ"
 COL_CITY         = "Ort"
 COL_NAME         = "Name Einsender"

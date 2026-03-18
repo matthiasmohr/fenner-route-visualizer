@@ -1,13 +1,5 @@
 {
   "(Korbmacherstr. 34) Depot: Bögelstr. 1, 21335, Lüneburg": null,
-  "22081, HH": [
-    53.5749807,
-    10.046372
-  ],
-  "22081, hh": [
-    53.5749807,
-    10.046372
-  ],
   "ABC-Str. 45, 20354, Hamburg": [
     53.5542746,
     9.9859957
@@ -48,13 +40,9 @@
     53.5699009,
     10.0880663
   ],
-  "Alsterblick 58, 22397, Hamburg": [
-    53.7041538,
-    10.1205215
-  ],
-  "Alsterdorfer Str., 22297, Hamburg": [
-    53.6023092,
-    9.9972407
+  "Alsterdorfer Str. 255, 22297, Hamburg": [
+    53.6078888,
+    10.0054264
   ],
   "Alstertor 18, 20095, Hamburg": [
     53.5528192,
@@ -64,9 +52,9 @@
     53.1139192,
     9.2088906
   ],
-  "Alte Holstenstraße, 21031, Hamburg": [
-    53.4943272,
-    10.2067528
+  "Alte Holstenstraße 65, 21031, Hamburg": [
+    53.4898504,
+    10.2094507
   ],
   "Alter Teichweg 11-13, 22081, Hamburg": [
     53.58218,
@@ -80,17 +68,21 @@
     53.549606,
     9.9891719
   ],
+  "Altonaer Str. 59, 20357, HH": [
+    53.5648705,
+    9.9630724
+  ],
   "Altonaer Str. 59, 20357, Hamburg": [
     53.5648705,
     9.9630724
   ],
-  "Altonaer Str., 20357, HH": [
-    53.5655189,
-    9.9657462
+  "Altonaer Str. 63, 20357, HH": [
+    53.5650705,
+    9.9638517
   ],
-  "Am Akku, 22885, Barsbüttel": [
-    53.5671105,
-    10.1634853
+  "Am Akku 9, 22885, Barsbüttel": [
+    53.5666675,
+    10.1642711
   ],
   "Am Alten Markt 12 a, 22926, Ahrensburg": [
     53.6769882,
@@ -104,17 +96,17 @@
     53.5065503,
     9.9203185
   ],
-  "Am Backofen, 22339, HH": [
-    53.6435152,
-    10.0376348
+  "Am Backofen 2, 22339, HH": [
+    53.643821,
+    10.0383961
   ],
   "Am Friedhof 5, 27259, Varrel": [
     52.6149497,
     8.7354979
   ],
   "Am Kiebitzberg 10, 23730, Neustadt": [
-    54.0903295,
-    10.8292319
+    54.0908337,
+    10.8287757
   ],
   "Am Klaubusch 21, 29459, Bad Bevensen": [
     53.0869387,
@@ -124,9 +116,9 @@
     53.2331173,
     8.7936612
   ],
-  "Am Ladenzentrum, 21465, Reinbek": [
-    53.5111321,
-    10.2352364
+  "Am Ladenzentrum 8, 21465, Reinbek": [
+    53.5105207,
+    10.2358215
   ],
   "Am Markt 10, 25436, Uetersen": [
     53.6834015,
@@ -135,10 +127,6 @@
   "Am Markt 5, 23730, Neustadt": [
     54.1074853,
     10.8151453
-  ],
-  "Am Markt, 25436, Uetersen": [
-    53.6841418,
-    9.6669031
   ],
   "Am Osterbach 7a, 21376, Hamburg": null,
   "Am Rathaus 2, 25421, Pinneberg": [
@@ -149,25 +137,22 @@
     53.419315,
     10.0203206
   ],
-  "Am Sande, 21335, Lüneburg": [
-    53.2476484,
-    10.4109366
+  "Am Sande 13, 21335, Lüneburg": [
+    53.2472367,
+    10.410267
   ],
-  "Am Schloßmühlendamm, 21073, Hamburg": [
-    53.4620621,
-    9.9817802
-  ],
+  "Am Schloßmühlendamm 8-10, 21073, Hamburg": null,
   "Am Sorgfeld 2, 22589, Hamburg": [
     53.5791137,
     9.7969132
   ],
-  "Am Wall, 21073, HH": [
-    53.4610711,
-    9.9849193
+  "Am Wall 1, 21073, HH": [
+    53.4608171,
+    9.9851278
   ],
-  "Am Wall, 21073, Hamburg": [
-    53.4610711,
-    9.9849193
+  "Am Wall 1, 21073, Hamburg": [
+    53.4608171,
+    9.9851278
   ],
   "Am Wasserturm 3, 21335, Lüneburg": [
     53.2468813,
@@ -181,24 +166,24 @@
     53.5234078,
     10.0183369
   ],
-  "Ameisweg, 21035, Hamburg": [
-    53.4772474,
-    10.1825627
+  "Ameisweg 6, 21035, Hamburg": [
+    53.4771438,
+    10.1822584
   ],
-  "An der Bahn, 25336, Elmshorn": [
-    53.7485799,
-    9.6600308
+  "An der Bahn 1, 25336, Elmshorn": [
+    53.748837,
+    9.6601767
   ],
-  "An der Dänischburg, 23569, Lübeck": [
-    53.9112554,
-    10.7386724
+  "An der Dänischburg 2, 23569, Lübeck": [
+    53.910939,
+    10.7383396
   ],
   "An der Kleinbahn 35 - 37, 21423, Winsen": [
     53.3521513,
     10.2161629
   ],
-  "Andreas-Knaack-Ring, 22307, Hamburg": null,
-  "Andres-Knack-Ring, 22307, HH": null,
+  "Andreas-Knaack-Ring 16, 22307, Hamburg": null,
+  "Andres-Knack-Ring 2-6, 22307, HH": null,
   "Anna-Klara-Fischer-Str. 10, 28277, Bremen": [
     53.0397794,
     8.8252072
@@ -212,57 +197,73 @@
     10.2806659
   ],
   "Auf der Höhe 69, 21339, Lüneburg": [
-    53.2374574,
-    10.383997
+    53.2377042,
+    10.3841789
   ],
-  "August-Krogmann-Str., 22159, HH": [
-    53.6151442,
-    10.1143932
+  "August-Krogmann-Str. 14a, 22159, HH": [
+    53.6077325,
+    10.1176474
   ],
-  "Bahnhofsstr., 24582, Bordesholm": null,
+  "Bahnhofsstr. 84, 24582, Bordesholm": null,
+  "Bahnhofstr. 11, 21614, Buxtehude": [
+    53.4735847,
+    9.6953493
+  ],
   "Bahnhofstr. 11, 24340, Eckernförde": [
     54.4676525,
     9.8362606
+  ],
+  "Bahnhofstr. 14, 25497, Prisdorf": [
+    53.6769833,
+    9.7605623
   ],
   "Bahnhofstr. 16, 29553, Bienenbüttel": [
     53.1423716,
     10.4868183
   ],
+  "Bahnhofstr. 19, 21614, Buxtehude": [
+    53.4731876,
+    9.6941989
+  ],
   "Bahnhofstr. 2, 22941, Bargteheide": [
     53.7296323,
     10.2688041
+  ],
+  "Bahnhofstr. 20, 21614, Buxtehude": [
+    53.4741729,
+    9.6953592
   ],
   "Bahnhofstr. 27, 21255, Tostedt": [
     53.2785136,
     9.7158623
   ],
+  "Bahnhofstr. 38, 21614, Buxtehude": [
+    53.4723919,
+    9.6919334
+  ],
   "Bahnhofstr. 56, 28844, Weyhe": [
     52.984054,
     8.8585488
   ],
-  "Bahnhofstr., 21465, Reinbek": [
-    53.5090096,
-    10.2512033
-  ],
-  "Bahnhofstr., 21614, Buxtehude": [
-    53.4741729,
-    9.6953592
-  ],
-  "Bahnhofstr., 25497, Prisdorf": [
-    53.6768276,
-    9.7608119
+  "Bahnhofstr. 9, 21465, Reinbek": [
+    53.5086093,
+    10.2504341
   ],
   "Bahrenfelder Str. 169, 22765, Hamburg": [
     53.5544407,
     9.928424
   ],
   "Bahrenfelder Str. 242, 22765, Hamburg": [
-    53.5565822,
-    9.9284881
+    53.5567439,
+    9.9285728
   ],
   "Bahrenfelder Str. 244, 22765, Hamburg": [
     53.5569377,
     9.9283571
+  ],
+  "Ballindamm 11, 20095, HH": [
+    53.5544131,
+    9.9994248
   ],
   "Ballindamm 3, 20095, Hamburg": [
     53.555256,
@@ -272,21 +273,17 @@
     53.5520592,
     9.9957923
   ],
-  "Ballindamm, 20095, HH": [
-    53.5524992,
-    9.9958821
-  ],
-  "Barckhausenstr, 21333, Lüneburg": [
-    53.2441751,
-    10.409656
+  "Barckhausenstr 57, 21333, Lüneburg": [
+    53.2382421,
+    10.4104862
   ],
   "Barckhausenstr. 35, 21335, Lüneburg": [
     53.2407516,
     10.4100131
   ],
-  "Barckhausenstr., 21333, Lüneburg": [
-    53.2441751,
-    10.409656
+  "Barckhausenstr. 57, 21333, Lüneburg": [
+    53.2382421,
+    10.4104862
   ],
   "Bardenfleth 39, 26931, Elsfleth": [
     53.2362694,
@@ -296,30 +293,30 @@
     53.6199827,
     10.1529389
   ],
-  "Barmbeker Markt, 22081, HH": [
-    53.5809545,
-    10.0427647
+  "Barmbeker Markt 10, 22081, HH": [
+    53.5813772,
+    10.0424199
   ],
-  "Barmbeker Str., 22303, HH": [
-    53.5882467,
-    10.0163777
+  "Barmbeker Str. 40, 22303, HH": [
+    53.5867967,
+    10.0177069
   ],
   "Baron-Vogt-Str. 119, 22607, Hamburg": null,
-  "Bauernweide, 21149, Hamburg": [
+  "Bauernweide 4-6, 21149, Hamburg": [
     53.4707888,
     9.8502924
   ],
-  "Baumkamp, 22299, HH": [
-    53.5992215,
-    9.9993375
+  "Baumkamp 18, 22299, HH": [
+    53.5990595,
+    9.9983169
   ],
   "Beerenweg 24-26, 22765, Hamburg": [
     53.5666111,
     9.9229662
   ],
-  "Beethovenstr., 22083, HH": [
-    53.5765551,
-    10.024669
+  "Beethovenstr. 53, 22083, HH": [
+    53.5777272,
+    10.0271419
   ],
   "Behringstr. 120, 22763, Hamburg": [
     53.5551133,
@@ -333,25 +330,25 @@
     53.5764889,
     9.9453332
   ],
+  "Bei der Johanniskirche 20, 22767, HH": [
+    53.5604256,
+    9.9541425
+  ],
   "Bei der Johanniskirche 20, 22767, Hamburg": [
     53.5604256,
     9.9541425
   ],
-  "Bei der Johanniskirche, 22767, HH": [
-    53.5596835,
-    9.9524152
+  "Bei der Neuen Münze 11, 22145, HH": [
+    53.6232162,
+    10.1513354
   ],
   "Bei der Neuen Münze 11, 22145, Hamburg": [
     53.6232162,
     10.1513354
   ],
-  "Bei der Neuen Münze, 22145, HH": [
-    53.6232594,
-    10.1524032
-  ],
-  "Bei der St. Johanniskirche, 21335, Lüneburg": [
-    53.2481061,
-    10.4133476
+  "Bei der St. Johanniskirche 6, 21335, Lüneburg": [
+    53.2472944,
+    10.4133434
   ],
   "Beiersdorfstr. 2, 22529, Hamburg": [
     53.5836535,
@@ -369,59 +366,59 @@
     53.5709335,
     9.9777882
   ],
-  "Beim Strohause, 20097, HH": null,
-  "Beim Strohhause, 20097, HH": [
-    53.5534433,
-    10.0230074
+  "Beim Strohause 34, 20097, HH": null,
+  "Beim Strohhause 34, 20097, HH": [
+    53.5531309,
+    10.0233251
   ],
-  "Bengelsdorfstr., 22179, HH": [
+  "Bengelsdorfstr. 1h, 22179, HH": [
     53.597657,
     10.0947354
   ],
   "Bergedorfer Str. 10, 21033, Hamburg": [
-    53.5063455,
-    10.1767027
+    53.5084532,
+    10.1734798
   ],
   "Bergener Str. 10, 28307, Bremen": [
     53.0292385,
     8.9066205
   ],
-  "Bergstedter Markt, 22395, HH": [
-    53.6709754,
-    10.1232396
+  "Bergstedter Markt 15b, 22395, HH": [
+    53.6714727,
+    10.1244319
+  ],
+  "Bergstr. 14, 20095, HH": [
+    53.5508934,
+    9.9957464
   ],
   "Bergstr. 14, 20095, Hamburg": [
     53.5508934,
     9.9957464
   ],
-  "Bergstr., 20095, HH": [
-    53.5505033,
-    9.9959564
+  "Berner Heerweg 157, 22159, HH": [
+    53.6040365,
+    10.1192365
   ],
-  "Berner Heerweg, 22159, HH": [
-    53.5992277,
-    10.1176308
+  "Bernhard-Nocht-Str. 74, 20359, HH": [
+    53.5468419,
+    9.9649891
   ],
   "Bernhard-Nocht-Str. 74, 20359, Hamburg": [
     53.5468419,
     9.9649891
   ],
-  "Bernhard-Nocht-Str., 20359, HH": [
-    53.546755,
-    9.9594911
+  "Bernstoffstr. 174, 22767, HH": null,
+  "Bernstorffstr. 174, 22767, HH": [
+    53.559806,
+    9.9597476
   ],
-  "Bernstoffstr., 22767, HH": null,
-  "Bernstorffstr., 22767, HH": [
-    53.5551483,
-    9.9575879
+  "Beseler Platz 4, 22607, HH": [
+    53.5608326,
+    9.8875025
   ],
-  "Beseler Platz, 22607, HH": [
-    53.5602041,
-    9.8885851
-  ],
-  "Bethesdastraße, 20535, HH": [
-    53.5573304,
-    10.0370455
+  "Bethesdastraße 8, 20535, HH": [
+    53.5569292,
+    10.0357259
   ],
   "Billhorner Deich 2, 20539, Hamburg": [
     53.5320624,
@@ -435,13 +432,13 @@
     53.5375348,
     10.0451971
   ],
-  "Billstedter Hauptstr., 22111, Hamburg": [
-    53.5418395,
-    10.0974829
+  "Billstedter Hauptstr. 31, 22111, Hamburg": [
+    53.5410041,
+    10.0999659
   ],
-  "Billstedter Platz, 22111, Hamburg": [
-    53.5396547,
-    10.1043475
+  "Billstedter Platz 17, 22111, Hamburg": [
+    53.5399739,
+    10.105517
   ],
   "Binderstr. 24, 20146, Hamburg": [
     53.5680041,
@@ -463,27 +460,27 @@
     53.559876,
     9.8118827
   ],
-  "Blankeneser Chaussee, 22869, HH": null,
+  "Blankeneser Chaussee 10, 22869, HH": null,
   "Blankeneser Landstr. 2a, 22587, Hamburg": [
     53.5634133,
     9.8120001
+  ],
+  "Blankeneser Landstr. 3, 22587, HH": [
+    53.5631164,
+    9.8112393
   ],
   "Blankeneser Landstr. 3, 22587, Hamburg": [
     53.5631164,
     9.8112393
   ],
-  "Blankeneser Landstr., 22587, HH": [
-    53.5632729,
-    9.8114371
-  ],
-  "Blankleneser Bahnhofstr., 22587, HH": null,
-  "Bleichenbrücke 9, 20354, Hamburg": [
+  "Blankleneser Bahnhofstr. 31, 22587, HH": null,
+  "Bleichenbrücke 9, 20354, HH": [
     53.5516253,
     9.9875577
   ],
-  "Bleichenbrücke, 20354, HH": [
-    53.5515357,
-    9.9886273
+  "Bleichenbrücke 9, 20354, Hamburg": [
+    53.5516253,
+    9.9875577
   ],
   "Bleicherstr. 11, 21614, Buxtehude": [
     53.4741428,
@@ -501,47 +498,47 @@
     53.6141242,
     10.0246359
   ],
-  "Bornheide 11, 22549, Hamburg": [
+  "Bornheide 11, 22549, HH": [
     53.5827886,
     9.8553804
   ],
-  "Bornheide, 22549, HH": [
-    53.5883519,
-    9.8518435
+  "Bornheide 11, 22549, Hamburg": [
+    53.5827886,
+    9.8553804
   ],
   "Borsteler Chaussee 43, 22453, Hamburg": [
     53.6047114,
     9.9832706
   ],
-  "Borsteler Chaussee, 22453, Hamburg": [
-    53.6096823,
-    9.9750604
+  "Borsteler Chaussee 55, 22453, Hamburg": [
+    53.6041635,
+    9.9827968
   ],
-  "Borstelmannsweg, 20537, HH": [
-    53.5518115,
-    10.0541594
+  "Borstelmannsweg 145, 20537, HH": [
+    53.5473088,
+    10.0504773
+  ],
+  "Bramfelder Chaussee 297, 22177, HH": [
+    53.6176428,
+    10.0779678
+  ],
+  "Bramfelder Chaussee 297, 22177, Hamburg": [
+    53.6176428,
+    10.0779678
   ],
   "Bramfelder Chaussee 324, 22177, Hamburg": [
     53.6187812,
     10.0806355
   ],
-  "Bramfelder Chaussee, 22177, HH": [
-    53.6110754,
-    10.0739274
+  "Bramfelder Dorfplatz 6, 22179, HH": [
+    53.6128577,
+    10.0769194
   ],
-  "Bramfelder Chaussee, 22177, Hamburg": [
-    53.6132539,
-    10.0754787
+  "Bramfelder Dorfplatz 6, 22179, Hamburg": [
+    53.6128577,
+    10.0769194
   ],
-  "Bramfelder Dorfplatz, 22179, HH": [
-    53.6134481,
-    10.0782237
-  ],
-  "Bramfelder Dorfplatz, 22179, Hamburg": [
-    53.6140242,
-    10.0769905
-  ],
-  "Bramfelder Drift, 22175, HH": [
+  "Bramfelder Drift 11a, 22175, HH": [
     53.6314315,
     10.0871776
   ],
@@ -562,22 +559,22 @@
     10.2471742
   ],
   "Bundesstr. 107B, 20144, Hamburg": [
-    53.5708369,
-    9.9717804
+    53.5700137,
+    9.972925
   ],
   "Burgwedel 51, 22457, Hamburg": [
     53.6407808,
     9.915868
   ],
-  "Burmesterstr., 22179, HH": [
-    53.5861552,
-    10.0371162
+  "Burmesterstr. 2, 22179, HH": [
+    53.5873212,
+    10.0364504
   ],
   "Butenfeld 34, 22529, Hamburg": [
     53.592567,
     9.971519
   ],
-  "Bögelstr. 1 =Depot (Hagemannsweg 5), 21339, Lüneburg": null,
+  "Bögelstr. 1 =Depot (Hagemannsweg 5) 5), 21339, Lüneburg": null,
   "Bögelstr. 1, 21338, Lüneburg": [
     53.240222,
     10.3958656
@@ -586,13 +583,13 @@
     53.240222,
     10.3958656
   ],
-  "Börnestr., 22089, HH": [
+  "Börnestr. 11a, 22089, HH": [
     53.5719371,
     10.0579173
   ],
   "Böttcherstr. 2a, 21365, Adendorf": [
-    53.2819942,
-    10.4421512
+    53.2820182,
+    10.4419926
   ],
   "Böttger Str. 13, 20148, Hamburg": [
     53.5689874,
@@ -627,10 +624,7 @@
     9.9622809
   ],
   "Colonaden 5, 20354, Hamburg": null,
-  "Colonaden, 20354, HH": [
-    53.5564556,
-    9.9904312
-  ],
+  "Colonaden 51, 20354, HH": null,
   "Colonnaden 9, 20354, Hamburg": [
     53.5553477,
     9.9903329
@@ -648,24 +642,24 @@
     53.660595,
     9.8039717
   ],
-  "Damm, 25421, Pinneberg": [
-    53.6589447,
-    9.8074892
+  "Damm 35, 25421, Pinneberg": [
+    53.6603245,
+    9.8044072
   ],
-  "Dammstücken, 24558, Henstedt-Ulzb.": null,
+  "Dammstücken 35, 24558, Henstedt-Ulzb.": null,
   "Dammtorstr. 1, 20354, Hamburg": [
     53.5561093,
     9.9875881
   ],
+  "Dammtorstr. 27, 20354, HH": [
+    53.5570674,
+    9.9888251
+  ],
   "Dammtorstr. 27, 20354, Hamburg": [
-    53.5571125,
-    9.9888176
+    53.5570674,
+    9.9888251
   ],
-  "Dammtorstr., 20354, HH": [
-    53.556301,
-    9.9879033
-  ],
-  "Dehnhaide 120 (ex Grete-Z-W), 22081, Hamburg": null,
+  "Dehnhaide 120 (ex Grete-Z-W) Grete-Z-W), 22081, Hamburg": null,
   "Dehnhaide 120, 22081, Hamburg": [
     53.577895,
     10.0529663
@@ -682,15 +676,15 @@
     53.2944716,
     10.3784889
   ],
-  "Dithmarscher Straße, 22049, HH": [
-    53.5790058,
-    10.0610403
+  "Dithmarscher Straße 5, 22049, HH": [
+    53.5771794,
+    10.0589989
   ],
-  "Dithmarscher Straße, 22049, Hamburg": [
-    53.5790058,
-    10.0610403
+  "Dithmarscher Straße 5, 22049, Hamburg": [
+    53.5771794,
+    10.0589989
   ],
-  "Dockenhuder Str., 22587, HH": null,
+  "Dockenhuder Str. 15, 22587, HH": null,
   "Dorfstr. 221, 21365, Adendorf": [
     53.2740822,
     10.4770813
@@ -711,37 +705,37 @@
     53.5892443,
     10.0040983
   ],
-  "Dorotheenstrasse, 22299, HH": [
-    53.5897902,
-    10.0033118
+  "Dorotheenstrasse 146, 22299, HH": [
+    53.5892443,
+    10.0040983
   ],
-  "Droopweg, 20537, Hamburg": [
-    53.5529842,
-    10.0609411
+  "Droopweg 25, 20537, Hamburg": [
+    53.5535581,
+    10.06258
   ],
   "Druckerstr. 7, 22117, Hamburg": [
     53.5366061,
     10.1195011
   ],
-  "Duvenstedter Damm, 22397, HH": [
-    53.7073734,
-    10.110638
+  "Duvenstedter Damm 52, 22397, HH": [
+    53.7080018,
+    10.1103432
   ],
-  "Eckerkoppel, 22159, HH": [
-    53.599291,
-    10.1100779
+  "Eckerkoppel 121, 22159, HH": [
+    53.5973795,
+    10.1022459
   ],
   "Eckernförder Str. 219, 24119, Kronshagen": [
     54.3385522,
     10.1043416
   ],
-  "Eckhoffplatz 28, 22547, Hamburg": [
+  "Eckhoffplatz 28, 22547, HH": [
     53.5927988,
     9.8730337
   ],
-  "Eckhoffplatz, 22547, HH": [
-    53.5917264,
-    9.8739224
+  "Eckhoffplatz 28, 22547, Hamburg": [
+    53.5927988,
+    9.8730337
   ],
   "Edith-Stein-Platz 5, 21035, Hamburg": [
     53.4872572,
@@ -751,13 +745,17 @@
     53.6110187,
     10.1541451
   ],
-  "Ehrenbergstrasse, 22767, HH": [
-    53.5499716,
-    9.9408844
+  "Ehrenbergstrasse 31, 22767, HH": [
+    53.5498387,
+    9.9404955
   ],
   "Eichenweg 53, 25451, Quickborn": [
     53.7303041,
     9.9253177
+  ],
+  "Eidelstedter Platz 1, 22523, HH": [
+    53.6076724,
+    9.9046544
   ],
   "Eidelstedter Platz 1, 22523, Hamburg": [
     53.6076724,
@@ -767,17 +765,17 @@
     53.6083067,
     9.9033044
   ],
+  "Eidelstedter Platz 18, 22523, HH": [
+    53.6082681,
+    9.9055884
+  ],
   "Eidelstedter Platz 18, 22523, Hamburg": [
     53.6081739,
     9.9056214
   ],
-  "Eidelstedter Platz, 22523, HH": [
-    53.6082821,
-    9.9047788
-  ],
-  "Eilbeker Weg, 22089, HH": [
-    53.5737691,
-    10.0569757
+  "Eilbeker Weg 65a, 22089, HH": [
+    53.5702109,
+    10.0463496
   ],
   "Eissendorfer Pferdeweg 52, 21075, Hamburg": [
     53.4594942,
@@ -787,49 +785,53 @@
     53.5589225,
     9.8135349
   ],
-  "Elbgaustr., 22547, HH": [
-    53.602686,
-    9.8933936
+  "Elbgaustr. 128, 22547, HH": [
+    53.6013759,
+    9.8876135
   ],
-  "Elmshorner Str., 25421, Pinneberg": [
-    53.6779854,
-    9.7934585
+  "Elmshorner Str. 76, 25421, Pinneberg": [
+    53.6700822,
+    9.7942847
   ],
   "Eppendorfer Baum 19, 20249, Hamburg": [
     53.583352,
     9.9842184
   ],
+  "Eppendorfer Baum 35, 22391, HH": [
+    53.5841286,
+    9.9819276
+  ],
+  "Eppendorfer Baum 35-37, 20249, HH": [
+    53.5848844,
+    9.9816964
+  ],
   "Eppendorfer Baum 4, 20249, Hamburg": [
     53.5823706,
     9.9876686
+  ],
+  "Eppendorfer Baum 7, 20249, HH": [
+    53.5822345,
+    9.9866451
   ],
   "Eppendorfer Baum 8, 20249, Hamburg": [
     53.5825932,
     9.9871832
   ],
-  "Eppendorfer Baum, 20249, HH": [
-    53.583787,
-    9.9852871
-  ],
-  "Eppendorfer Baum, 22391, HH": [
-    53.583787,
-    9.9852871
-  ],
   "Eppendorfer Landstr. 37, 20249, Hamburg": [
     53.5881757,
     9.985068
   ],
-  "Eppendorfer Landstr., 20249, HH": [
-    53.5890688,
-    9.9866305
+  "Eppendorfer Landstr. 42, 20249, HH": [
+    53.5874275,
+    9.9853798
   ],
   "Eppendorfer Weg 111, 20259, Hamburg": [
     53.5748011,
     9.9617685
   ],
-  "Eppendorfer Weg, 20259, HH": [
-    53.5740156,
-    9.9613809
+  "Eppendorfer Weg 92/96, 20259, HH": [
+    53.5744458,
+    9.9621812
   ],
   "Erdkampsweg 26, 22335, Hamburg": [
     53.6288492,
@@ -839,20 +841,16 @@
     53.6291928,
     10.0228323
   ],
-  "Erdkampsweg, 22335, Hamburg": [
-    53.6343647,
-    10.0174197
-  ],
   "Ericstr. 94, 20251, Hamburg": null,
   "Erik-Blumenfeld-Platz 27A, 22587, Hamburg": [
-    53.5637649,
-    9.8133793
+    53.5637356,
+    9.8132687
   ],
   "Ernst-Mantiusstr. 25, 21029, Hamburg": [
     53.4907357,
     10.2146533
   ],
-  "Erste Brunnensr., 20459, HH": null,
+  "Erste Brunnensr. 12, 20459, HH": null,
   "Eulenkrugstr. 1, 22359, Hamburg": [
     53.6464998,
     10.1591118
@@ -865,29 +863,26 @@
     53.682304,
     9.9876973
   ],
-  "Fabriciusstr., 22177, HH": [
-    53.6113454,
-    10.0696263
+  "Fabriciusstr. 276, 22177, HH": [
+    53.6165383,
+    10.0727702
   ],
   "Fahltskamp 74, 25421, Pinneberg": [
     53.654252,
     9.8118103
   ],
-  "Falkenried   1St., 22523, HH": [
-    53.5859754,
-    9.9709654
+  "Falkenried   1St. 88, 22523, HH": null,
+  "Falkenried 88, 20251, HH": [
+    53.5859777,
+    9.9723455
   ],
-  "Falkenried 88, Gebäude D, 20251, Hamburg": null,
-  "Falkenried 88, im CIM, 20251, Hamburg": null,
-  "Falkenried, 20251, HH": [
-    53.5839172,
-    9.9734361
-  ],
+  "Falkenried 88, Gebäude D D, 20251, Hamburg": null,
+  "Falkenried 88, im CIM CIM, 20251, Hamburg": null,
   "Fangdieckstr. 53, 22547, Hamburg": [
     53.5966016,
     9.9016247
   ],
-  "Fangdiekstr., 22547, Hamburg": null,
+  "Fangdiekstr. 75a, 22547, Hamburg": null,
   "Feldstr. 1, 22880, Wedel": [
     53.5775848,
     9.7057085
@@ -900,22 +895,22 @@
     53.5548452,
     10.0008004
   ],
-  "Fibiger Str., 22419, Hamburg": [
-    53.6717929,
-    10.016692
+  "Fibiger Str. 19, 22419, Hamburg": [
+    53.6776015,
+    10.0032753
   ],
-  "Finkenried, 22844, Norderst.": null,
+  "Finkenried 43, 22844, Norderst.": null,
   "Finkenwerder Norderdeich 90, 21129, Hamburg": [
     53.5333406,
     9.8760717
   ],
+  "Fleetplatz 3, 21035, Hamburg": [
+    53.4894867,
+    10.1590286
+  ],
   "Fleetplatz 5, 21035, Hamburg": [
     53.4892175,
     10.1588717
-  ],
-  "Fleetplatz, 21035, Hamburg": [
-    53.4892488,
-    10.1585685
   ],
   "Fleetstedter Ring 3, 21217, Seevetal": null,
   "Flughafenstr. 81, 22415, Hamburg": [
@@ -934,9 +929,9 @@
     53.6511746,
     10.0958127
   ],
-  "Friedrich Ebert Damm, 22049, HH": [
-    53.5834675,
-    10.073336
+  "Friedrich Ebert Damm 81, 22049, HH": [
+    53.5865432,
+    10.0862036
   ],
   "Friedrich-Frank-Bogen 35, 21033, Hamburg": [
     53.489231,
@@ -946,13 +941,13 @@
     53.4928577,
     10.1767903
   ],
-  "Friedrich-Frank-Bogen, 21033, Hamburg": [
+  "Friedrich-Frank-Bogen 93, 21033, Hamburg": [
     53.4928577,
     10.1767903
   ],
-  "Friedrich-Legahn-Str., 22587, HH": [
-    53.5627037,
-    9.8102438
+  "Friedrich-Legahn-Str. 2, 22587, HH": [
+    53.5622398,
+    9.8114621
   ],
   "Friedrich-Lichtenauer-Allee 1, 21423, Winsen": [
     53.3505593,
@@ -963,32 +958,36 @@
     10.2001667
   ],
   "Fritz-Flinte-Ring 71, 22309, Hamburg": [
-    53.6118004,
-    10.0539445
+    53.6118239,
+    10.0539262
   ],
   "Frohmestr. 45, 22457, Hamburg": [
     53.632823,
     9.9212823
   ],
+  "Fuhlsbüttler Str. 108, 22305, HH": [
+    53.5887424,
+    10.0462068
+  ],
   "Fuhlsbüttler Str. 108, 22305, Hamburg": [
-    53.5887412,
-    10.0462071
+    53.5887424,
+    10.0462068
   ],
-  "Fuhlsbüttler Str., 22305, HH": [
-    53.5899441,
-    10.0451693
+  "Fuhlsbüttler Str. 135, 22305, HH": [
+    53.5905401,
+    10.0445809
   ],
-  "Fuhlsbüttler Str., 22307, HH": [
-    53.5970037,
-    10.0429905
+  "Fuhlsbüttler Str. 257, 22307, HH": [
+    53.5967079,
+    10.0428576
   ],
-  "Fuhlsbüttler Str., 22337, HH": [
-    53.6103338,
-    10.0374241
+  "Fuhlsbüttler Str. 627, 22337, HH": [
+    53.6130809,
+    10.0356406
   ],
-  "Försterweg, 22525, HH": [
-    53.5884838,
-    9.9208419
+  "Försterweg 13, 22525, HH": [
+    53.5793229,
+    9.9333742
   ],
   "Georgstr. 19A, 29553, Bienenbüttel": [
     53.1403982,
@@ -1011,18 +1010,18 @@
     10.5445377
   ],
   "Goosacker 6, 22549, Hamburg": [
-    53.5705342,
-    9.851583
+    53.5711573,
+    9.8525026
   ],
   "Gorch-Fock-Weg 16, 23730, Neustadt": [
     54.0949363,
     10.832612
   ],
-  "Grachtenplatz, 21036, Hamburg": [
-    53.4842187,
-    10.1748389
+  "Grachtenplatz 9, 21036, Hamburg": [
+    53.4834695,
+    10.1758334
   ],
-  "Grandweg, 22529, HH": [
+  "Grandweg 64, 22529, HH": [
     53.5920985,
     9.9614151
   ],
@@ -1035,17 +1034,21 @@
     53.2393061,
     10.4073788
   ],
-  "Grelckstr., 22529, HH": [
-    53.6011806,
-    9.9560586
+  "Grelckstr. 2, 22529, HH": [
+    53.5999263,
+    9.9583724
   ],
-  "Grindelallee, 20144, HH": [
-    53.5723086,
-    9.9786624
+  "Grindelallee 106, 20146, HH": [
+    53.5678232,
+    9.9808341
   ],
-  "Grindelallee, 20146, HH": [
-    53.5640037,
-    9.9848728
+  "Grindelallee 182, 20144, HH": [
+    53.5716839,
+    9.9789279
+  ],
+  "Grindelberg 3, 20144, HH": [
+    53.5726753,
+    9.9778197
   ],
   "Grindelberg 3, 20144, Hamburg": [
     53.5726753,
@@ -1055,65 +1058,65 @@
     53.5746202,
     9.9773997
   ],
-  "Grindelberg, 20144, HH": [
-    53.5776533,
-    9.9771262
+  "Grindelberg 79, 20144, HH": [
+    53.5770846,
+    9.9775813
   ],
   "Groot Enn 1-3, 21149, Hamburg": [
     53.4717558,
     9.8533573
   ],
-  "Groß Flottbeker Str., 22607, HH": [
-    53.5619354,
-    9.8788369
+  "Groß Flottbeker Str. 1, 22607, HH": [
+    53.5596153,
+    9.8804484
+  ],
+  "Große Bergstr. 231, 22767, HH": [
+    53.5520014,
+    9.9412793
   ],
   "Große Bergstr. 262, 22767, Hamburg": [
     53.5521123,
     9.9380747
   ],
-  "Große Bergstr., 22767, HH": [
-    53.5513234,
-    9.9474826
-  ],
-  "Große Bergstraße, 22767, HH": [
-    53.5513234,
-    9.9474826
+  "Große Bergstraße 211, 22767, HH": [
+    53.5519259,
+    9.9433062
   ],
   "Große Bleichen 5, 20354, Hamburg": [
     53.5532276,
     9.9908532
   ],
-  "Große Bleichen 68, 20354, Hamburg": [
+  "Große Bleichen 68, 20354, HH": [
     53.5522806,
     9.9860874
   ],
-  "Große Bleichen, 20354, HH": [
-    53.5521032,
-    9.9868423
+  "Große Bleichen 68, 20354, Hamburg": [
+    53.5522806,
+    9.9860874
   ],
   "Große Johannisstr. 19, 20457, Hamburg": [
     53.549167,
     9.9920532
   ],
-  "Große Str., 21075, Hamburg": [
-    53.4521477,
-    9.9248516
+  "Große Str. 96, 21075, Hamburg": [
+    53.4522824,
+    9.9385939
   ],
   "Großer Burstah 25, 20457, Hamburg": [
     53.5482354,
     9.9896889
   ],
-  "Großer Burstah, 20099, HH": [
-    53.5490727,
-    9.9914918
+  "Großer Burstah 53, 20099, HH": [
+    53.5483333,
+    9.9878359
   ],
   "Großmannstr. 105, 20539, Hamburg": [
     53.5400934,
     10.0513843
   ],
-  "Grubesallee, 22143, Hamburg": [
-    53.6061096,
-    10.1521351
+  "Grubesallee 18, 22143, Hamburg": [
+    53.6061873,
+    10.153332
   ],
   "Grömitzer Weg 33, 22147, Hamburg": [
     53.6078015,
@@ -1139,21 +1142,21 @@
     53.5557369,
     9.9885084
   ],
+  "Haferweg 36, 22769, HH": [
+    53.5720664,
+    9.9376179
+  ],
   "Haferweg 36, 22769, Hamburg": [
     53.5720664,
     9.9376179
   ],
-  "Haferweg, 22769, HH": [
-    53.5717976,
-    9.9386808
+  "Hagener Allee 70d, 22926, Ahrensburg": [
+    53.6651345,
+    10.2353908
   ],
-  "Hagener Allee, 22926, Ahrensburg": [
-    53.6649874,
-    10.237377
-  ],
-  "Hallerplatz, 20146, HH": [
-    53.5713581,
-    9.985581
+  "Hallerplatz 10, 20146, HH": [
+    53.5718384,
+    9.986105
   ],
   "Hallerstr. 6, 20146, Hamburg": [
     53.5720775,
@@ -1167,25 +1170,29 @@
     53.5201706,
     10.0829917
   ],
-  "Hamburger Landstr., 21465, Wentorf": [
-    53.4900308,
-    10.2505432
+  "Hamburger Landstr. 36, 21465, Wentorf": [
+    53.4902518,
+    10.2513396
+  ],
+  "Hamburger Str. 144, 22081, HH": [
+    53.5708848,
+    10.0281413
+  ],
+  "Hamburger Str. 200, 22081, HH": [
+    53.5788498,
+    10.0398673
+  ],
+  "Hamburger Str. 206, 22083, HH": [
+    53.5790363,
+    10.0404677
   ],
   "Hamburger Str. 28, 24558, Henstedt Ulzburg": [
     53.7907228,
     9.9803458
   ],
-  "Hamburger Str., 22081, HH": [
-    53.5744808,
-    10.0373151
-  ],
-  "Hamburger Str., 22083, HH": [
-    53.5744808,
-    10.0373151
-  ],
-  "Hamburger Str., 22949, Ammersbek": [
-    53.6780503,
-    10.1457019
+  "Hamburger Str. 97a, 22949, Ammersbek": [
+    53.6788763,
+    10.1493135
   ],
   "Hammerbrookstr. 93, 20097, Hamburg": [
     53.5452437,
@@ -1203,21 +1210,21 @@
     53.5746328,
     9.9923652
   ],
-  "Hanseaten-Platz, 25524, Itzehoe": [
-    53.9318136,
-    9.5261102
+  "Hanseaten-Platz 1, 25524, Itzehoe": [
+    53.9315422,
+    9.5249754
   ],
-  "Harburger Rathausstr., 21073, Hamburg": [
-    53.4595188,
-    9.9810013
+  "Harburger Rathausstr. 37, 21073, Hamburg": [
+    53.4591264,
+    9.9814569
   ],
-  "Harburger Ring, 21073, HH": [
-    53.4577982,
-    9.9846057
+  "Harburger Ring 10, 21073, HH": [
+    53.4595159,
+    9.9844439
   ],
-  "Harburger Ring, 21073, Hamburg": [
-    53.4608882,
-    9.9780422
+  "Harburger Ring 10, 21073, Hamburg": [
+    53.4595159,
+    9.9844439
   ],
   "Harkortstr. 101, 22767, Hamburg": [
     53.5611091,
@@ -1247,25 +1254,42 @@
     53.6570157,
     9.7119799
   ],
+  "Hauptstr. 35, 25462, Reutlingen": null,
   "Hauptstr. 51, 28844, Weyhe": [
     52.984123,
     8.8330143
   ],
-  "Hauptstr., 25462, Reutlingen": [
-    48.4328696,
-    9.1499311
+  "Heegbarg 10, 22391, HH": [
+    53.6534493,
+    10.0931635
+  ],
+  "Heegbarg 12, 22391, HH": [
+    53.6536395,
+    10.0928913
+  ],
+  "Heegbarg 14, 22391, HH": [
+    53.6538317,
+    10.0929224
+  ],
+  "Heegbarg 14, 22691, HH": [
+    53.6538317,
+    10.0929224
+  ],
+  "Heegbarg 16, 22391, HH": [
+    53.6540215,
+    10.0930844
+  ],
+  "Heegbarg 25, 22391, HH": [
+    53.6532947,
+    10.0913576
   ],
   "Heegbarg 25, 22391, Hamburg": [
     53.6532947,
     10.0913576
   ],
-  "Heegbarg, 22391, HH": [
-    53.6553152,
-    10.0930197
-  ],
-  "Heegbarg, 22691, HH": [
-    53.6553152,
-    10.0930197
+  "Heegbarg 4, 22391, HH": [
+    53.652519,
+    10.0931965
   ],
   "Hegestr. 64, 20249, Hamburg": [
     53.5842365,
@@ -1276,12 +1300,12 @@
     9.9944883
   ],
   "Heidhörn 1, 22307, Hamburg": [
-    53.5936905,
-    10.0449706
+    53.5936343,
+    10.044773
   ],
-  "Heidlohstr., 22459, HH": [
-    53.6281813,
-    9.9216698
+  "Heidlohstr. 25, 22459, HH": [
+    53.6286399,
+    9.9257039
   ],
   "Heiligengeiststr. 19, 26121, Oldenburg": [
     53.1478752,
@@ -1291,13 +1315,13 @@
     53.5916553,
     9.993361
   ],
-  "Hein-Köllisch-Platz, 20359, HH": [
-    53.5476505,
-    9.9571985
+  "Hein-Köllisch-Platz 1, 20359, HH": [
+    53.5475494,
+    9.9576473
   ],
-  "Heinrich-Hertz-Str., 25336, Elmshorn": [
-    53.7439674,
-    9.6341974
+  "Heinrich-Hertz-Str. 18, 25336, Elmshorn": [
+    53.7469896,
+    9.6373725
   ],
   "Helbingstr. 46, 22047, Hamburg": [
     53.5850593,
@@ -1323,88 +1347,92 @@
     53.5778813,
     9.9477761
   ],
-  "Helmut-Steidl-Platz, 22143, Hamburg": [
-    53.604614,
-    10.1547737
+  "Helmut-Steidl-Platz 1, 22143, Hamburg": [
+    53.605103,
+    10.1552331
   ],
-  "Hemmingstedter Weg, 22609, HH": [
-    53.5638732,
-    9.854918
+  "Hemmingstedter Weg 168, 22609, HH": [
+    53.5640527,
+    9.8516229
   ],
-  "Hermann Balk Str., 22147, HH": [
-    53.6217768,
-    10.1419813
+  "Hermann Balk Str. 137, 22147, HH": [
+    53.6257599,
+    10.1391794
   ],
-  "Hermann Balk Str., 22147, Hamburg": [
-    53.6217768,
-    10.1419813
+  "Hermann Balk Str. 137, 22147, Hamburg": [
+    53.6257599,
+    10.1391794
   ],
-  "Hermann-Ehlers-Weg, 25337, Elmshorn": [
-    53.7480098,
-    9.677815
+  "Hermann-Ehlers-Weg 4, 25337, Elmshorn": [
+    53.7479735,
+    9.6767059
   ],
-  "Hermannstr., 20354, HH": [
-    53.5510201,
-    9.9948396
+  "Hermannstr. 46, 20354, HH": [
+    53.5508744,
+    9.9944461
   ],
   "Herrengraben 31, 20459, Hamburg": [
     53.546223,
     9.9818729
   ],
   "Herrmann-Balk-Str. 135, 22147, Hamburg": null,
-  "Heußweg 37 (3. + 4. OG), 20255, Hamburg": null,
+  "Heußweg 37 (3. + 4. OG) OG), 20255, Hamburg": null,
+  "Heußweg 37, 20255, HH": [
+    53.5769208,
+    9.9516853
+  ],
   "Heußweg 37, 20255, Hamburg": [
     53.5769208,
     9.9516853
   ],
-  "Heußweg, 20255, HH": [
-    53.5777384,
-    9.9527985
-  ],
-  "Heußweg, 22255, HH": [
-    53.5747692,
-    9.9507963
+  "Heußweg 37, 22255, HH": [
+    53.5768442,
+    9.9516926
   ],
   "Heykenaukamp 10, Haus 601, 21147, Hamburg": null,
-  "Hindenburgstrasse, 22297, HH": [
-    53.6097037,
-    10.0118238
+  "Hindenburgstrasse 99b, 22297, HH": [
+    53.6085735,
+    10.0111747
   ],
   "Hinsbleek 11, 22391, Hamburg": [
     53.6507582,
     10.0769096
   ],
-  "Hinterm Graben, 22029, Hamburg": [
-    53.487299,
-    10.2134793
+  "Hinterm Graben 37, 22029, Hamburg": [
+    53.4863864,
+    10.2144839
   ],
   "Hochallee 118, 20249, Hamburg": [
     53.5818872,
     9.9861602
   ],
-  "Hoefftstr., 29525, Uelzen": [
-    52.9689958,
-    10.5545254
+  "Hoefftstr. 24a, 29525, Uelzen": [
+    52.9674,
+    10.5578403
+  ],
+  "Hofweg 14, 22085, HH": [
+    53.5697724,
+    10.0177001
   ],
   "Hofweg 22, 22085, Hamburg": [
     53.5702476,
     10.017534
   ],
-  "Hofweg, 22085, HH": [
-    53.5778705,
-    10.0142279
-  ],
   "Hogenkamp 16, 25336, Elmshorn": [
     53.7450779,
     9.6591846
   ],
-  "Hohe Bleichen, 20354, HH": [
-    53.553239,
-    9.9873646
+  "Hohe Bleichen 10, 20354, HH": [
+    53.5530693,
+    9.9875961
   ],
   "Hohe Weide 17, 20259, Hamburg": [
     53.5717926,
     9.965901
+  ],
+  "Hohe Weide 17b, 20146, HH": [
+    53.5708393,
+    9.9650639
   ],
   "Hohe Weide 17b, 20259, Hamburg": [
     53.5708393,
@@ -1414,44 +1442,52 @@
     53.5706668,
     9.9648478
   ],
-  "Hohe Weide, 20146, HH": [
-    53.57612,
-    9.9729578
-  ],
-  "Hohe Weide, 22303, HH": [
-    53.57612,
-    9.9729578
+  "Hohe Weide 17c, 22303, HH": [
+    53.5706668,
+    9.9648478
   ],
   "Hoheluftchaussee 18, 20253, Hamburg": [
     53.5795413,
     9.9751797
   ],
+  "Hoheluftchaussee 20, 20253, HH": [
+    53.5800088,
+    9.9751142
+  ],
   "Hoheluftchaussee 20, 20253, Hamburg": [
     53.5800088,
     9.9751142
+  ],
+  "Hoheluftchaussee 36, 20251, HH": [
+    53.5803859,
+    9.9742767
+  ],
+  "Hoheluftchaussee 36, 20253, HH": [
+    53.5803859,
+    9.9742767
+  ],
+  "Hoheluftchaussee 36, 22397, HH": [
+    53.5803859,
+    9.9742767
   ],
   "Hoheluftchaussee 42, 20253, Hamburg": [
     53.5806151,
     9.9740184
   ],
+  "Hoheluftchaussee 52, 20253, HH": [
+    53.5809002,
+    9.9740306
+  ],
+  "Hoheluftchaussee 56, 20253, HH": [
+    53.5812302,
+    9.9732605
+  ],
   "Hoheluftchaussee 85, 20253, Hamburg": [
     53.5816493,
     9.9717591
   ],
-  "Hoheluftchaussee, 20251, HH": [
-    53.5861839,
-    9.9686702
-  ],
-  "Hoheluftchaussee, 20253, HH": [
-    53.5829264,
-    9.9709375
-  ],
-  "Hoheluftchaussee, 22397, HH": [
-    53.578771,
-    9.9758302
-  ],
   "Hoher Holzweg 17, 30966, Hemmingern": null,
-  "Hollensenstr., 24768, Rendsburg": null,
+  "Hollensenstr. 27a, 24768, Rendsburg": null,
   "Holsteiner Chaussee 305, 22457, Hamburg": [
     53.6373088,
     9.9104532
@@ -1464,6 +1500,10 @@
     53.5592389,
     9.9496089
   ],
+  "Holstenstr. 2, 22767, HH": [
+    53.5508292,
+    9.9542356
+  ],
   "Holstenstr. 2, 22767, Hamburg": [
     53.5508292,
     9.9542356
@@ -1472,25 +1512,25 @@
     53.8359818,
     9.9642275
   ],
-  "Holstenstr., 22767, HH": [
-    53.5618787,
-    9.9492535
+  "Holthusenstr 20, 22359, HH": [
+    53.6454131,
+    10.168201
   ],
-  "Holthusenstr, 22359, HH": [
-    53.6453207,
-    10.1678265
+  "Holthusenstr 35, 22359, HH": [
+    53.6472234,
+    10.1681983
   ],
-  "Hopfenmarkt, 20354, HH": [
-    53.5475347,
-    9.9896414
+  "Hopfenmarkt 31, 20354, HH": [
+    53.547914,
+    9.9894803
   ],
-  "Horner Landstr., 22111, Hamburg": [
-    53.5496159,
-    10.0802124
+  "Horner Landstr. 200, 22111, Hamburg": [
+    53.5495432,
+    10.0798175
   ],
-  "Horner Landstrasse, 22111, Hamburg": [
-    53.543786,
-    10.0918626
+  "Horner Landstrasse 200, 22111, Hamburg": [
+    53.54943,
+    10.0797603
   ],
   "Hornungweg 16, 22179, Hamburg": [
     53.6073559,
@@ -1500,33 +1540,34 @@
     54.1331514,
     10.6019612
   ],
-  "Hudtwalckerstr., 22299, HH": [
-    53.5945497,
-    9.9961041
+  "Hudtwalckerstr. 2-8, 22299, HH": [
+    53.5935863,
+    9.9950772
   ],
-  "Hudtwalkerstr., 22299, HH": null,
+  "Hudtwalkerstr. 11, 22299, HH": null,
+  "Hudtwalkerstr. 2-8, 22299, HH": null,
   "Hugh-Greene-Weg 2, 22529, Hamburg": [
     53.595013,
     9.9460232
   ],
-  "Humboldtstr., 22083, HH": [
-    53.5726096,
-    10.0270332
+  "Humboldtstr. 9, 22083, HH": [
+    53.5717923,
+    10.0276119
   ],
-  "Hummelsbütteler Markt, 22339, HH": [
-    53.6429418,
-    10.0462427
+  "Hummelsbütteler Markt 15, 22339, HH": [
+    53.6433114,
+    10.0464417
   ],
-  "Hummelsbütteler Markt, 22339, Hamburg": [
-    53.6429418,
-    10.0462427
+  "Hummelsbütteler Markt 15, 22339, Hamburg": [
+    53.6433114,
+    10.0464417
   ],
-  "Hummelsbüttler Dorfstr., 22335, Hamburg": [
-    53.643815,
-    10.0455583
+  "Hummelsbüttler Dorfstr. 9, 22335, Hamburg": [
+    53.6431642,
+    10.0441109
   ],
-  "Hummelsbüttler Weg, 22339, HH": null,
-  "Hummelsbüttler Weg, 22339, Hamburg": null,
+  "Hummelsbüttler Weg 7, 22339, HH": null,
+  "Hummelsbüttler Weg 7, 22339, Hamburg": null,
   "Häcklinger Weg 66, 21335, Lüneburg": [
     53.2219006,
     10.3851268
@@ -1539,9 +1580,9 @@
     53.2450803,
     10.4179403
   ],
-  "Im Alten Dorfe, 22359, HH": [
-    53.6509213,
-    10.1670982
+  "Im Alten Dorfe 23, 22359, HH": [
+    53.648913,
+    10.1643901
   ],
   "Im Breitspiel 16, 69126, Heidelberg": [
     49.3624041,
@@ -1552,36 +1593,40 @@
     10.3896731
   ],
   "Industriestr. 40, 01129, Dresden": [
-    51.0906033,
-    13.7083549
+    51.0906554,
+    13.7088142
   ],
   "Industriestr. 64a, 28876, Oyten": [
     53.0573723,
     9.0411604
+  ],
+  "Jarrestr. 2-6, 22301, HH": [
+    53.5835703,
+    10.0203646
+  ],
+  "Jarrestr. 2-6, 22303, HH": [
+    53.5835703,
+    10.0203646
   ],
   "Jarrestr. 44 b, 22303, Hamburg": [
     53.5849673,
     10.0256956
   ],
   "Jarrestr. 44, 22303, Hamburg": [
-    53.584868,
-    10.0252388
+    53.5848151,
+    10.0255027
   ],
-  "Jarrestr., 22301, HH": [
-    53.5837055,
-    10.0190817
+  "Jarrestr. 44b, 22303, HH": [
+    53.5849673,
+    10.0256956
   ],
-  "Jarrestr., 22303, HH": [
-    53.5837466,
-    10.0193738
+  "Jarrestrasse 2-6, 22303, HH": [
+    53.5835703,
+    10.0203646
   ],
-  "Jarrestrasse, 22303, HH": [
-    53.5837466,
-    10.0193738
-  ],
-  "Julius-Leber-Straße, 22765, HH": [
-    53.555564,
-    9.9381425
+  "Julius-Leber-Straße 10, 22765, HH": [
+    53.5555135,
+    9.9415394
   ],
   "Jungfernstieg 34, 20354, Hamburg": [
     53.5540008,
@@ -1592,6 +1637,10 @@
     9.9898182
   ],
   "Jungfrauental 13, 20149, Hamburg": null,
+  "Jungfrauenthal 49, 20246, HH": [
+    53.580974,
+    9.9826783
+  ],
   "Jungfrauenthal, 20246, HH": [
     53.5813109,
     9.9823473
@@ -1612,13 +1661,13 @@
     53.5992543,
     9.8187847
   ],
-  "Karlstr., 22085, HH": [
-    53.5741915,
-    10.0099693
+  "Karlstr. 35, 22085, HH": [
+    53.5748032,
+    10.013661
   ],
-  "Kattjahren, 22359, HH": [
-    53.6520041,
-    10.1624414
+  "Kattjahren 6, 22359, HH": [
+    53.6525519,
+    10.1630019
   ],
   "Kiebitzweg 2, 22869, Schenefeld": [
     53.602234,
@@ -1628,7 +1677,7 @@
     53.6483805,
     11.3705406
   ],
-  "Kielortplatz, 22850, Norderst.": null,
+  "Kielortplatz 126, 22850, Norderst.": null,
   "Kirchgellerserstr. 2, 21394, Südergellertsen": null,
   "Kirchplatz 4, 29553, Bienenbüttel": [
     53.1424815,
@@ -1645,6 +1694,14 @@
   "Kleinworts Höh 11, 22549, Hamburg": [
     53.5894615,
     9.8702818
+  ],
+  "Klinikweg 23, 22081, HH": [
+    53.5735905,
+    10.0360966
+  ],
+  "Klinikweg 23, 22081, hh": [
+    53.5735905,
+    10.0360966
   ],
   "Klärchenstr. 12, 22299, Hamburg": [
     53.5877005,
@@ -1666,17 +1723,17 @@
     53.5880996,
     9.8495758
   ],
-  "Krüsistr., 22305, HH": [
-    53.5875648,
-    10.0455739
+  "Krüsistr. 15, 22305, HH": [
+    53.5876619,
+    10.0458287
   ],
-  "Kunaustr., 22393, HH": [
-    53.6532896,
-    10.1104947
+  "Kunaustr. 1, 22393, HH": [
+    53.6528611,
+    10.1108294
   ],
-  "Kunaustr., 22395, HH": [
-    53.6537244,
-    10.1102506
+  "Kunaustr. 1, 22395, HH": [
+    53.6528611,
+    10.1108294
   ],
   "Kurfürstenallee 130, 28211, Bremen": [
     53.0831878,
@@ -1698,7 +1755,7 @@
     53.5641314,
     9.7916409
   ],
-  "Kümmelstr., 20249, HH": null,
+  "Kümmelstr. 1, 20249, HH": null,
   "Labor, 22081, HH": [
     53.5735905,
     10.0360966
@@ -1706,6 +1763,10 @@
   "Lagerstr. 17, 20357, Hamburg": [
     53.5601228,
     9.9687491
+  ],
+  "Lange Reihe 39, 20099, HH": [
+    53.5569359,
+    10.0102911
   ],
   "Lange Reihe 39, 20099, Hamburg": [
     53.5569359,
@@ -1715,17 +1776,17 @@
     53.5575655,
     10.0111105
   ],
-  "Lange Reihe, 20099, HH": [
-    53.5592299,
-    10.0139175
+  "Langelohstr. 151, 22549, HH": [
+    53.5725183,
+    9.8462313
+  ],
+  "Langelohstr. 158, 22549, HH": [
+    53.5724625,
+    9.8469607
   ],
   "Langelohstr. 158, 22549, Hamburg": [
     53.5724625,
     9.8469607
-  ],
-  "Langelohstr., 22549, HH": [
-    53.5717925,
-    9.8464145
   ],
   "Langenfelder Str. 116, 22769, Hamburg": [
     53.5684011,
@@ -1735,9 +1796,9 @@
     53.674239,
     10.0075204
   ],
-  "Langenhorner Chaussee, 22419, Hamburg": [
-    53.6659183,
-    10.001535
+  "Langenhorner Chaussee 657, 22419, Hamburg": [
+    53.6784831,
+    10.0001681
   ],
   "Lappenbergsallee 50, 20257, Hamburg": [
     53.5778855,
@@ -1747,6 +1808,10 @@
     53.5435285,
     10.0971957
   ],
+  "Lehmweg 17, 20251, HH": [
+    53.5809341,
+    9.9783821
+  ],
   "Lehmweg 17, 20251, Hamburg": [
     53.5809341,
     9.9783821
@@ -1755,77 +1820,69 @@
     53.6515828,
     9.6640706
   ],
-  "Lehmweg, 20251, HH": [
-    53.5818322,
-    9.9797241
+  "Leinpfad 1, 22301, HH": [
+    53.5806534,
+    9.9996857
   ],
-  "Leinpfad, 22301, HH": [
-    53.5928347,
-    9.9948701
+  "Lerchenfeld 14, 20535, HH": [
+    53.5694504,
+    10.0288753
   ],
-  "Lerchenfeld, 20535, HH": [
-    53.5664516,
-    10.0317494
+  "Lerchenfeld 14, 22057, HH": [
+    53.5694504,
+    10.0288753
   ],
-  "Lerchenfeld, 22057, HH": [
-    53.5665978,
-    10.0315799
-  ],
-  "Lerchenfeld, 22081, HH": [
-    53.570224,
-    10.0272125
+  "Lerchenfeld 14, 22081, HH": [
+    53.5694504,
+    10.0288753
   ],
   "Lesserstr. 180, 22049, Hamburg": [
     53.5952689,
     10.0782912
   ],
-  "Liliencronstr. 130, 22149, Hamburg": [
+  "Liliencronstr. 130, 22143, Hamburg": [
     53.5873149,
     10.1649951
   ],
-  "Liliencronstr., 22143, Hamburg": [
-    53.5980954,
-    10.1608236
-  ],
-  "Liliencronstr., 22149, Hamburg": [
-    53.5941276,
-    10.1608174
+  "Liliencronstr. 130, 22149, Hamburg": [
+    53.5873149,
+    10.1649951
   ],
   "Lilienstr. 15, 20095, Hamburg": [
     53.5522952,
     10.0017529
   ],
-  "Lindenstraße, 21244, Buchholz": [
-    53.3272951,
-    9.8814383
+  "Lindenstraße 12, 21244, Buchholz": [
+    53.3265805,
+    9.8815392
   ],
   "Lindenweg 4a, 22946, Trittau": [
     53.6057815,
     10.409082
   ],
-  "Lippmannstr., 22769, HH": [
-    53.5604157,
-    9.9613586
+  "Lippmannstr. 22, 22769, HH": [
+    53.5606553,
+    9.9613886
   ],
   "Lohmühlenstr. 1, 20099, Hamburg": [
     53.5609898,
     10.0141156
   ],
   "Lohmühlenstr. 5, 20099, Hamburg": [
-    53.5592394,
-    10.0209027
+    53.5590823,
+    10.0197902
   ],
   "Lollfuß 69, 24837, Schleswig": [
     54.5130779,
     9.5502199
   ],
-  "Loogeplatz, 20249, HH": [
-    53.5889281,
-    9.9916577
+  "Loogeplatz 20, 20249, HH": [
+    53.5886347,
+    9.9919693
   ],
-  "Lornsenstr., 22767, HH": [
-    53.5521302,
-    9.9433231
+  "Lornsenstr. 4, 22767, HH": [
+    53.5520813,
+    9.9426561
   ],
   "Lotharstr. 2b, 22041, Hamburg": [
     53.5771282,
@@ -1839,9 +1896,13 @@
     53.5494102,
     9.9799946
   ],
-  "Luruper Hauptstr., 22547, HH": [
-    53.5901998,
-    9.8756807
+  "Luruper Hauptstr. 204, 22547, HH": [
+    53.5960266,
+    9.8679162
+  ],
+  "Luruper Hauptstr. 87, 22547, HH": [
+    53.5871905,
+    9.8770903
   ],
   "Lübecker Str. 102, 22087, Hamburg": [
     53.5616236,
@@ -1855,9 +1916,9 @@
     53.4637548,
     9.707294
   ],
-  "Lüneburger str., 29456, Hitzacker": [
-    53.1481872,
-    11.0402432
+  "Lüneburger str. 17b, 29456, Hitzacker": [
+    53.147602,
+    11.0402513
   ],
   "Lütjenmoor 2, 22850, Norderstedt": [
     53.6821403,
@@ -1867,15 +1928,19 @@
     53.2661078,
     10.3987282
   ],
-  "Malzweg, 20535, HH": [
-    53.5567771,
-    10.0346662
+  "Malzweg 5, 20535, HH": [
+    53.5572747,
+    10.0344862
   ],
-  "Manhagener Allee, 22926, Ahrensburg": [
-    53.6644812,
-    10.2491779
+  "Manhagener Allee 7, 22926, Ahrensburg": [
+    53.6724353,
+    10.2401575
   ],
-  "Manshardstr., 22119, Hamburg": [
+  "Manhagener Allee 71, 22926, Ahrensburg": [
+    53.6666642,
+    10.2472871
+  ],
+  "Manshardstr. 2, 22119, Hamburg": [
     53.5577984,
     10.1021763
   ],
@@ -1887,42 +1952,42 @@
     53.1422454,
     8.2061709
   ],
-  "Markstr., 21423, Winsen": null,
-  "Markt, 21509, Glinde": [
-    53.5414121,
-    10.2139237
+  "Markstr. 4, 21423, Winsen": null,
+  "Markt 16, 21509, Glinde": [
+    53.5424082,
+    10.2132415
   ],
   "Marnitzstr. 2A, 21033, Hamburg": [
     53.4983941,
     10.2021059
   ],
-  "Martinistr,., 20251, HH": [
-    53.587934,
-    9.973336
+  "Martinistr,. 52, 20251, HH": [
+    53.5918063,
+    9.9725632
   ],
   "Martinistr. 52, 20251, Hamburg": [
-    53.5909051,
-    9.9753758
+    53.5918063,
+    9.9725632
+  ],
+  "Martinistr. 64, 20251, HH": [
+    53.5899309,
+    9.9734188
   ],
   "Martinistr. 78, 20251, Hamburg": [
     53.5883283,
     9.9727691
   ],
-  "Martinistr., 20251, HH": [
-    53.5870063,
-    9.9708858
-  ],
   "Matthias-Claudius-Str. 10, 24558, Henstedt Ulzburg": [
     53.7538008,
     9.9974844
   ],
-  "Max-Brauer-Allee, 22765, HH": [
-    53.552891,
-    9.9378793
+  "Max-Brauer-Allee 52, 22765, HH": [
+    53.5515795,
+    9.9369062
   ],
-  "Meiendorfer Str., 20145, HH": [
-    53.6356536,
-    10.1859001
+  "Meiendorfer Str. 203, 20145, HH": [
+    53.633315,
+    10.1845846
   ],
   "Mercedesstr. 1, 21079, Hamburg": [
     53.476595,
@@ -1944,6 +2009,10 @@
     53.575368,
     9.9939983
   ],
+  "Mittelweg 123, 20148, HH": [
+    53.571671,
+    9.9950386
+  ],
   "Mittelweg 123, 20148, Hamburg": [
     53.571671,
     9.9950386
@@ -1960,17 +2029,17 @@
     53.5665784,
     9.9961459
   ],
+  "Mittelweg 169, 20148, HH": [
+    53.5656131,
+    9.9955746
+  ],
   "Mittelweg 18, 20148, Hamburg": [
     53.5670466,
     9.9954454
   ],
-  "Mittelweg, 20148, HH": [
-    53.5721848,
-    9.9943425
-  ],
-  "Moislinger Allee, 23558, Lübeck": [
-    53.8539682,
-    10.6638197
+  "Moislinger Allee 95, 23558, Lübeck": [
+    53.8514598,
+    10.6595926
   ],
   "Moordamm 2, 25474, Ellerbek": [
     53.6381758,
@@ -1989,8 +2058,8 @@
     9.9683524
   ],
   "Möllner Landstr. 27, 22111, Hamburg": [
-    53.5397286,
-    10.1067768
+    53.539688,
+    10.1068072
   ],
   "Möllner Landstr. 28, 22113, Oststeinbek": [
     53.5416465,
@@ -2004,11 +2073,16 @@
     53.5428211,
     10.1524496
   ],
-  "Möllner Landstrasse, 22111, Hamburg": [
-    53.5385293,
-    10.1106553
+  "Möllner Landstrasse 29, 22111, Hamburg": [
+    53.5394329,
+    10.1065853
   ],
-  "Mönchebergstr., 20095, HH": null,
+  "Möllner Landstrasse 31, 22111, Hamburg": [
+    53.5392794,
+    10.1073627
+  ],
+  "Mönchebergstr. 27, 20095, HH": null,
+  "Mönchebergstr. 31, 20095, HH": null,
   "Mönckebergstr. 18, 20095, Hamburg": [
     53.5507777,
     9.996502
@@ -2017,13 +2091,13 @@
     53.5507777,
     9.996502
   ],
+  "Mönckebergstr. 31, 20095, HH": [
+    53.5501812,
+    9.9941584
+  ],
   "Mönckebergstr. 5, 20095, Hamburg": [
     53.5512308,
     10.0036795
-  ],
-  "Mönckebergstr., 20095, HH": [
-    53.5512748,
-    10.0019036
   ],
   "Mörkenstr. 47, 22767, Hamburg": [
     53.5492484,
@@ -2037,14 +2111,14 @@
     53.5812888,
     10.0109256
   ],
+  "Mühlenkamp 34a, 22303, HH": [
+    53.5821348,
+    10.0113833
+  ],
   "Mühlenkamp 5, 23758, Oldenburg i. H.": null,
   "Mühlenkamp 6, 22303, Hamburg": [
     53.5800696,
     10.0130597
-  ],
-  "Mühlenkamp, 22303, HH": [
-    53.581181,
-    10.011837
   ],
   "Mühlenstr. 24, 24376, Kappeln": [
     54.660262,
@@ -2054,33 +2128,33 @@
     53.5512948,
     9.9373457
   ],
-  "Neue Große Bergstr. 7, 22767, Hamburg": [
-    53.5518146,
-    9.937945
+  "Neue Große Bergstr. 7, 22767, HH": [
+    53.5518089,
+    9.9381647
   ],
-  "Neue Große Bergstr., 22767, HH": [
-    53.5515865,
-    9.9384832
+  "Neue Große Bergstr. 7, 22767, Hamburg": [
+    53.5518089,
+    9.9381647
   ],
   "Neue Str. 9, 21244, Buchholz": [
-    53.3262921,
-    9.8761874
+    53.3263635,
+    9.8760105
   ],
-  "Neue Strasse, 21073, Hamburg": [
-    53.4633983,
-    9.980181
+  "Neue Strasse 55, 21073, Hamburg": [
+    53.4634997,
+    9.9800012
   ],
   "Neuenfelder Fährdeich 40, 21129, Hamburg": [
     53.5304303,
     9.8003948
   ],
-  "Neuenfelder Str, 21109, Hamburg": [
-    53.4980557,
-    10.0010974
+  "Neuenfelder Str 31, 21109, Hamburg": [
+    53.4969467,
+    10.0041691
   ],
   "Neuer Höltigbaum 4, 22143, Hamburg": [
-    53.6111512,
-    10.1816725
+    53.6079186,
+    10.1855389
   ],
   "Neuer Pferdemarkt 12, 20359, Hamburg": [
     53.5592208,
@@ -2102,6 +2176,10 @@
     53.5522769,
     9.9920497
   ],
+  "Neuer Wall 32, 20354, HH": [
+    53.5519111,
+    9.9905286
+  ],
   "Neuer Wall 36, 20354, Hamburg": [
     53.551805,
     9.9902714
@@ -2122,29 +2200,25 @@
     53.5498675,
     9.9868139
   ],
-  "Neuer Wall, 20354, HH": [
-    53.5522769,
-    9.9920497
+  "Neukoppel 2, 22415, HH": [
+    53.6496681,
+    10.0192164
   ],
-  "Neukoppel, 22415, HH": [
-    53.6519692,
-    10.0208627
+  "Neukoppel 2, 22415, Hamburg": [
+    53.6496681,
+    10.0192164
   ],
-  "Neukoppel, 22415, Hamburg": [
-    53.6519692,
-    10.0208627
+  "Nienstedtener Str. 9, 22609, HH": [
+    53.5547061,
+    9.8444069
   ],
-  "Nienstedtener Str., 22609, HH": [
-    53.5579309,
-    9.8457757
+  "Nikolaus-Otto-Str, 7, 21648, Stade": [
+    53.5794587,
+    9.4903121
   ],
-  "Nikolaus-Otto-Str,, 21648, Stade": [
-    53.5795149,
-    9.489881
-  ],
-  "Nordschleswiger Str., 22049, HH": [
-    53.5822319,
-    10.0678508
+  "Nordschleswiger Str. 68, 22049, HH": [
+    53.5818881,
+    10.0674952
   ],
   "Notkestr. 85, 22607, Hamburg": [
     53.576778,
@@ -2158,33 +2232,33 @@
     53.4719569,
     10.081068
   ],
-  "Oderfelder Str. 6, 20149, Hamburg": [
+  "Oderfelder Str. 6, 20149, HH": [
     53.5826755,
     9.9890446
   ],
-  "Oderfelder Str., 20149, HH": [
-    53.5848552,
-    9.9882872
+  "Oderfelder Str. 6, 20149, Hamburg": [
+    53.5826755,
+    9.9890446
   ],
   "Oedemer Weg 3a, 21335, Lüneburg": [
     53.2389788,
     10.3961267
   ],
-  "Oeltingsallee, 25421, Pinneberg": [
-    53.6522637,
-    9.7940426
+  "Oeltingsallee 22, 25421, Pinneberg": [
+    53.6519526,
+    9.7939888
   ],
   "Ohnhorststr. 52, 22609, Hamburg": [
     53.5587624,
     9.8544551
   ],
-  "Oldesloer Str., 22457, HH": [
-    53.645281,
-    9.9299659
+  "Oldesloer Str. 2a, 22457, HH": [
+    53.6325475,
+    9.9119093
   ],
-  "Ole Hoop, 22587, HH": [
-    53.5614546,
-    9.815042
+  "Ole Hoop 18, 22587, HH": [
+    53.5611289,
+    9.8150655
   ],
   "Orchideenstieg 12, 22297, Hamburg": [
     53.6051063,
@@ -2198,17 +2272,17 @@
     53.5714657,
     9.8608956
   ],
-  "Oskar-Schlemmer-Str., 22115, Hamburg": [
-    53.5296048,
-    10.147499
+  "Oskar-Schlemmer-Str. 9-17, 22115, Hamburg": [
+    53.5296926,
+    10.1475023
   ],
   "Osterbek Str. 90c, 22083, Hamburg": [
     53.5832746,
     10.0284218
   ],
-  "Osterbekstr., 22083, HH": [
-    53.5826075,
-    10.023456
+  "Osterbekstr. 114, 22083, HH": [
+    53.5846053,
+    10.0414792
   ],
   "Osterrade 36a, 21031, Hamburg": [
     53.5106736,
@@ -2218,17 +2292,25 @@
     53.5764468,
     9.9502388
   ],
-  "Osterstr., 20255, HH": [
-    53.5761625,
-    9.9516599
+  "Osterstr. 134, 20255, HH": [
+    53.5765898,
+    9.9494281
   ],
-  "Osterstr., 20259, HH": [
-    53.5761625,
-    9.9516599
+  "Osterstr. 135, 20255, HH": [
+    53.5761162,
+    9.9499233
   ],
-  "Ottenser Hauptstr., 22765, HH": [
-    53.5522202,
-    9.9329137
+  "Osterstr. 155, 20255, HH": [
+    53.5770554,
+    9.9480536
+  ],
+  "Osterstr. 36, 20259, HH": [
+    53.5749783,
+    9.9585258
+  ],
+  "Ottenser Hauptstr. 33, 22765, HH": [
+    53.5517659,
+    9.9295342
   ],
   "Pagenfelder Str. 9, 22111, Hamburg": [
     53.5497443,
@@ -2243,8 +2325,8 @@
     10.0390315
   ],
   "Pappelallee 33-37, 22089, Hamburg": [
-    53.5683505,
-    10.0608049
+    53.5673936,
+    10.0594103
   ],
   "Parkallee 301, 28213, Bremen": [
     53.1051461,
@@ -2255,37 +2337,38 @@
     10.1935771
   ],
   "Paul-Ehrlich-Str. 1, 22763, Hamburg": [
-    53.5546206,
-    9.8988903
+    53.5549245,
+    9.9023394
   ],
   "Paul-Nevermann Platz 5, 22765, Hamburg": [
     53.5514052,
     9.9355003
   ],
-  "Pezolddamm, 22175, HH": [
-    53.6255506,
-    10.1177614
+  "Pezolddamm 141, 22175, HH": [
+    53.6248488,
+    10.1131672
   ],
   "Pinkertweg 50, 22113, Hamburg": [
     53.5227864,
     10.1034907
   ],
   "Pinnauallee 4, 25436, Uetersen": [
-    53.6793577,
-    9.6772199
+    53.679241,
+    9.6772197
   ],
-  "Pinneberger Chaussee, 22523, HH": [
-    53.6108182,
-    9.8998697
+  "Pinneberger Chaussee 137, 22523, HH": [
+    53.6202718,
+    9.8866507
   ],
-  "Pomonaring, 22926, Ahrensburg": [
-    53.6867426,
-    10.2356213
+  "Pomonaring 10a, 22926, Ahrensburg": [
+    53.6862539,
+    10.238446
   ],
-  "Poppenbütteler Hauptstr., 22399, HH": null,
-  "Poppenbütteler Weg, 22399, HH": [
-    53.6558311,
-    10.0824912
+  "Poppenbütteler Hauptstr. 13, 22399, HH": null,
+  "Poppenbütteler Hauptstr. 32, 22399, HH": null,
+  "Poppenbütteler Weg 177, 22399, HH": [
+    53.6570941,
+    10.0846737
   ],
   "Poppenbüttler Chaussee 36, 22397, Hamburg": null,
   "Postbrookstr. 103, 27574, Bremerhaven": [
@@ -2308,32 +2391,44 @@
     53.5543229,
     9.9880235
   ],
-  "Probst-Paulsen-Str., 22547, HH": null,
+  "Probst-Paulsen-Str. 2a, 22547, HH": null,
   "Professor-Küntscher-Str. 1-5, 24232, Schönkirchen": [
     54.335674,
     10.2072131
   ],
-  "Raamstieg, 22397, HH": [
-    53.6905638,
-    10.0812286
+  "Raamstieg 9, 22397, HH": [
+    53.6898258,
+    10.080952
   ],
-  "Rahlstedter Bahnhofstr., 22143, Hamburg": [
-    53.6022787,
-    10.154298
+  "Rahlstedter Bahnhofstr. 12, 22143, Hamburg": [
+    53.6035916,
+    10.1544561
   ],
-  "Rahlstedter Str., 22143, Hamburg": [
-    53.6028174,
-    10.1588605
+  "Rahlstedter Bahnhofstr. 22, 22143, Hamburg": [
+    53.6023099,
+    10.1539812
   ],
-  "Rahlstedter Str., 22149, Hamburg": [
-    53.5946143,
-    10.1462577
+  "Rahlstedter Bahnhofstr. 23-25, 22143, Hamburg": [
+    53.6008704,
+    10.1530948
+  ],
+  "Rahlstedter Bahnhofstr. 25, 22143, Hamburg": [
+    53.6036855,
+    10.1555091
+  ],
+  "Rahlstedter Str. 150h, 22143, Hamburg": [
+    53.6040237,
+    10.1603829
+  ],
+  "Rahlstedter Str. 41, 22149, Hamburg": [
+    53.594086,
+    10.1444392
   ],
   "Rathausallee 35, 22846, Norderstedt": [
     53.7072052,
     9.9894228
   ],
-  "Rathausallee, 22846, Norderst.": null,
+  "Rathausallee 37, 22846, Norderst.": null,
   "Rathausmarkt 19, 20095, Hamburg": [
     53.549891,
     9.9932559
@@ -2346,14 +2441,14 @@
     53.5501314,
     9.9945288
   ],
-  "Rathausstr., 22941, Bargtehde": null,
-  "Rathausstr., 25436, Uetersen": [
-    53.6827498,
-    9.6558349
+  "Rathausstr. 33a, 22941, Bargtehde": null,
+  "Rathausstr. 6, 25436, Uetersen": [
+    53.6827149,
+    9.6564372
   ],
-  "Reeseberg, 21079, Hamburg": [
-    53.4446517,
-    9.9971395
+  "Reeseberg 62, 21079, Hamburg": [
+    53.4461637,
+    9.9939778
   ],
   "Reesendamm 3, 20095, Hamburg": [
     53.551661,
@@ -2363,13 +2458,13 @@
     53.573706,
     9.9427691
   ],
-  "Rennbahnstr., 22111, Hamburg": [
-    53.5559254,
-    10.0828954
+  "Rennbahnstr. 28, 22111, Hamburg": [
+    53.553785,
+    10.0857295
   ],
-  "Reventlowstr., 22605, HH": [
-    53.5586817,
-    9.8874944
+  "Reventlowstr. 45, 22605, HH": [
+    53.5576555,
+    9.8886005
   ],
   "Robert Schumann Brücke 8, 22041, Hamburg": null,
   "Robert-Koch-Str. 2, 25524, Itzehoe": [
@@ -2380,23 +2475,24 @@
     53.5897704,
     9.9860219
   ],
+  "Rodigallee 252, 22523, Hamburg": [
+    53.5707899,
+    10.1255312
+  ],
+  "Rodigallee 305, 22043, HH": [
+    53.5715441,
+    10.1346953
+  ],
+  "Rodigallee 305, 22043, Hamburg": [
+    53.5715441,
+    10.1346953
+  ],
   "Rodigallee 85, 22043, Hamburg": [
     53.5706531,
     10.1050302
   ],
-  "Rodigallee, 22043, HH": [
-    53.5710169,
-    10.127839
-  ],
-  "Rodigallee, 22043, Hamburg": [
-    53.5710169,
-    10.127839
-  ],
-  "Rodigallee, 22523, Hamburg": [
-    53.5691191,
-    10.0952475
-  ],
-  "Rothenbaumch., 20149, HH": null,
+  "Rothenbaumch. 114, 20149, HH": null,
+  "Rothenbaumch. 131, 20149, HH": null,
   "Rothenbaumchaussee 105, 20148, Hamburg": [
     53.5714068,
     9.9881809
@@ -2409,6 +2505,10 @@
     53.5734586,
     9.9882444
   ],
+  "Rothenbaumchaussee 131, 20149, HH": [
+    53.5736282,
+    9.9881644
+  ],
   "Rothenbaumchaussee 195, 20149, Hamburg": [
     53.5781543,
     9.9884057
@@ -2416,10 +2516,6 @@
   "Rothenbaumchaussee 7, 20148, Hamburg": [
     53.5647866,
     9.9888726
-  ],
-  "Rothenbaumchaussee, 20149, HH": [
-    53.5772161,
-    9.9888994
   ],
   "Rothlaker Str. 1, 28870, Ottersberg-Posthausen": [
     53.0700911,
@@ -2449,29 +2545,29 @@
     53.5125735,
     10.2100246
   ],
-  "Rübekamp, 25421, Pinneberg": [
-    53.6611918,
-    9.796515
+  "Rübekamp 25, 25421, Pinneberg": [
+    53.6604662,
+    9.7929204
   ],
   "Rübenkamp 220, 22291, Hamburg": [
     53.6057776,
     10.0381321
   ],
-  "Rübenkamp, 22307, HH": [
-    53.6058815,
-    10.0331355
+  "Rübenkamp 220, 22307, HH": [
+    53.6062742,
+    10.0364792
   ],
-  "Rümkerstr., 22307, HH": [
-    53.6022092,
-    10.0500141
+  "Rümkerstr. 15/17, 22307, HH": [
+    53.6019713,
+    10.0497153
   ],
   "Sachsenwaldstr. 24, 21521, Aumühle": [
     53.5213121,
     10.3231109
   ],
-  "Sandkamp, 22111, Hamburg": [
-    53.5526156,
-    10.0875383
+  "Sandkamp 7, 22111, Hamburg": [
+    53.5515846,
+    10.0854423
   ],
   "Schenefelder Platz 1, 22869, Schenefeld": [
     53.598598,
@@ -2480,10 +2576,6 @@
   "Schenefelder Platz 6, 22869, Schenefeld": [
     53.5975304,
     9.8488961
-  ],
-  "Schenefelder Platz, 22869, Schenefeld": [
-    53.598394,
-    9.8502902
   ],
   "Schießgrabenstr. 1, 21335, Lüneburg": [
     53.2508258,
@@ -2509,13 +2601,21 @@
     53.2398831,
     10.3932073
   ],
-  "Schillerstr., 22767, HH": [
-    53.5509351,
-    9.9382268
+  "Schillerstr. 44b, 22767, HH": [
+    53.55089,
+    9.9384418
   ],
   "Schleswiger Str. 24 - 26, 27568, Bremerhaven": [
     53.5432832,
     8.5803612
+  ],
+  "Schloßstr. 12, 22041, HH": [
+    53.570859,
+    10.0671188
+  ],
+  "Schloßstr. 12, 22049, Hamburg": [
+    53.570859,
+    10.0671188
   ],
   "Schloßstr. 38, 22041, Hamburg": [
     53.5712106,
@@ -2526,20 +2626,12 @@
     10.0695551
   ],
   "Schloßstr. 8a, 22041, Hamburg": [
-    53.5708747,
-    10.0653557
+    53.5709311,
+    10.0654976
   ],
   "Schloßstr. 8b, 22041, Hamburg": [
     53.571352,
     10.0656174
-  ],
-  "Schloßstr., 22041, HH": [
-    53.5719917,
-    10.0708127
-  ],
-  "Schloßstr., 22049, Hamburg": [
-    53.572114,
-    10.0715246
   ],
   "Schlöpkeweg 8, 21357, Bardowick": [
     53.2897302,
@@ -2558,16 +2650,16 @@
     10.4512521
   ],
   "Schwachhauser Heerstr. 54, 28209, Bremen": [
-    53.0832424,
-    8.8350409
+    53.0827154,
+    8.8365414
   ],
   "Schwaneweder Str. 21-23, 28779, Bremen-Blumenthal": [
     53.1978084,
     8.5720725
   ],
-  "Schweriner Str., 22143, Hamburg": [
-    53.6049489,
-    10.1613805
+  "Schweriner Str. 10, 22143, Hamburg": [
+    53.6050822,
+    10.1579219
   ],
   "Schäferkampsallee 18, 20357, Hamburg": [
     53.5684975,
@@ -2585,21 +2677,33 @@
     53.352733,
     10.2086226
   ],
-  "Segeberger Str., 23845, Itzstedt": [
-    53.8086,
-    10.1593884
+  "Segeberger Str. 34, 23845, Itzstedt": [
+    53.8095741,
+    10.1623199
   ],
-  "Semperstraße, 22309, HH": [
-    53.5890597,
-    10.0226357
+  "Semperstraße 24, 22309, HH": [
+    53.5854458,
+    10.0151047
   ],
-  "Shanghaiallee, 20457, HH": [
+  "Shanghaiallee 15, 20457, HH": [
+    53.5426486,
+    10.0029903
+  ],
+  "Shanghaiallee 15, 20457, Hamburg": [
+    53.5424246,
+    10.003165
+  ],
+  "Shanghaiallee 15-17, 20457, HH": [
     53.5446683,
     10.0011005
   ],
-  "Shanghaiallee, 20457, Hamburg": [
+  "Shanghaiallee 15-17, 20457, Hamburg": [
     53.5441932,
     10.0014947
+  ],
+  "Shanghaiallee 17, 20457, HH": [
+    53.5423818,
+    10.0033377
   ],
   "Sieker Landstr. 122-124, 22927, Großhansdorf": [
     53.6629461,
@@ -2609,25 +2713,25 @@
     53.5883876,
     10.0022686
   ],
-  "Sievekingdamm, 20535, Hamburg": [
-    53.5603806,
-    10.0517236
+  "Sievekingdamm 3, 20535, Hamburg": [
+    53.5564615,
+    10.0430123
   ],
-  "Sommerland, 24576, Bad Bramstedt": [
+  "Sommerland 55, 24576, Bad Bramstedt": [
     53.9136407,
     9.8795323
   ],
-  "Sophienstr., 21465, Reinbek": [
-    53.5081479,
-    10.2512167
+  "Sophienstr. 7, 21465, Reinbek": [
+    53.508703,
+    10.2526349
+  ],
+  "Speersort 8, 20095, HH": [
+    53.5501983,
+    9.9983912
   ],
   "Speersort 8, 20095, Hamburg": [
     53.5501983,
     9.9983912
-  ],
-  "Speersort, 20095, HH": [
-    53.5499278,
-    9.9984993
   ],
   "Spengelweg 28, 20257, Hamburg": [
     53.5740196,
@@ -2638,26 +2742,26 @@
     10.0000289
   ],
   "Spitalerstr. 8, 20095, Hamburg": [
-    53.5523176,
-    10.003314
+    53.5523912,
+    10.0035917
   ],
   "St. Lambertiplatz 6, 21335, Lüneburg": [
     53.2454156,
     10.4023451
   ],
-  "Stadthausbrücke 3, 20355, Hamburg": [
+  "Stadthausbrücke 3, 20355, HH": [
     53.5503358,
     9.9856094
   ],
-  "Stadthausbrücke, 20355, HH": [
-    53.5495104,
-    9.984929
+  "Stadthausbrücke 3, 20355, Hamburg": [
+    53.5503358,
+    9.9856094
   ],
   "Stadtkoppel 5c, 21337, Lüneburg": [
     53.2468071,
     10.4486947
   ],
-  "Stapelfelder Str., 22143, Hamburg": [
+  "Stapelfelder Str. 106, 22143, Hamburg": [
     53.605756,
     10.1673869
   ],
@@ -2669,9 +2773,9 @@
     53.5324542,
     9.8804949
   ],
-  "Steilshooper Str., 22305, HH": [
-    53.5851968,
-    10.0480361
+  "Steilshooper Str. 184, 22305, HH": [
+    53.5931973,
+    10.0502949
   ],
   "Steindamm 32, 20097, Hamburg": [
     53.553618,
@@ -2681,15 +2785,15 @@
     53.5499249,
     10.0038682
   ],
-  "Steintorweg, 20099, HH": [
-    53.5531124,
-    10.0096146
+  "Steintorweg 4, 20099, HH": [
+    53.5533114,
+    10.009955
   ],
   "Stoltenstr. 13, 22119, Hamburg": [
     53.562648,
     10.0954121
   ],
-  "Stormanplatz, 22393, HH": null,
+  "Stormanplatz 8, 22393, HH": null,
   "Straßenbahnring 11, 20251, Hamburg": [
     53.5806019,
     9.976447
@@ -2698,13 +2802,13 @@
     53.5804035,
     9.9758695
   ],
+  "Straßenbahnring 3, 20251, HH": [
+    53.581288,
+    9.9776473
+  ],
   "Straßenbahnring 7, 20251, Hamburg": [
     53.5810316,
     9.9776109
-  ],
-  "Straßenbahnring, 20251, HH": [
-    53.5808789,
-    9.9766956
   ],
   "Stresemannallee 118, 22529, Hamburg": [
     53.5825556,
@@ -2714,9 +2818,9 @@
     53.5595571,
     9.9616903
   ],
-  "Stübeheide, 22391, Hamburg": [
-    53.6337088,
-    10.0565543
+  "Stübeheide 155, 22391, Hamburg": [
+    53.6334213,
+    10.053837
   ],
   "Suurheid 20, 22559, Hamburg": [
     53.5822768,
@@ -2730,9 +2834,13 @@
     53.4885829,
     10.2604689
   ],
-  "Südring, 22303, Hh": [
-    53.5923402,
-    10.0132447
+  "Südring 38, 22303, Hh": [
+    53.5914042,
+    10.0191369
+  ],
+  "Sülldorfer Kirchenweg 2a, 22587, HH": [
+    53.5641556,
+    9.8131759
   ],
   "Sülldorfer Kirchenweg 2a, 22587, Hamburg": [
     53.5641556,
@@ -2742,19 +2850,15 @@
     53.5645727,
     9.812451
   ],
-  "Sülldorfer Kirchenweg, 22587, HH": [
-    53.5655962,
-    9.8115085
-  ],
-  "Sülldorfer Landstr., 22589, HH": [
-    53.5778024,
-    9.814995
+  "Sülldorfer Landstr. 11-13, 22589, HH": [
+    53.5806447,
+    9.7841324
   ],
   "Süntelstr. 10, 22457, Hamburg": [
     53.6323239,
     9.9055757
   ],
-  "Süntelstr. 11a (HS F, EG), 22457, Hamburg": null,
+  "Süntelstr. 11a (HS F, EG) 11a, 22457, Hamburg": null,
   "Süntelstr. 11a, 22457, Hamburg": [
     53.630568,
     9.9059997
@@ -2763,13 +2867,13 @@
     53.5518532,
     9.960489
   ],
+  "Tangstedter Landstr. 111, 22415, Hamburg": [
+    53.6533355,
+    10.0184311
+  ],
   "Tangstedter Landstr. 400, 22471, Hamburg": [
     53.6741411,
     10.0301284
-  ],
-  "Tangstedter Landstr., 22415, Hamburg": [
-    53.6479417,
-    10.0154736
   ],
   "Tannenkamp 22, 27404, Zeven": [
     53.1885364,
@@ -2780,39 +2884,43 @@
     9.9966188
   ],
   "Tempowerk Ring Nr. 6, 21079, Hamburg": null,
-  "Tesdorpfstr., 20148, HH": [
-    53.5629853,
-    9.9914006
+  "Tesdorpfstr. 17, 20148, HH": [
+    53.564923,
+    9.9937863
   ],
   "Thedestr. 45, 22767, Hamburg": [
     53.5529331,
     9.9491433
   ],
-  "Tibarg, 22459, Hamburg": [
-    53.620309,
-    9.9517878
+  "Tibarg 21, 22459, Hamburg": [
+    53.6208163,
+    9.951505
   ],
-  "Tilsiter Str., 22049, HH": [
-    53.5892571,
-    10.076767
+  "Tibarg 7-9, 22459, Hamburg": [
+    53.6194838,
+    9.951053
   ],
-  "Tilsiter Str., 22081, HH": [
-    53.5890684,
-    10.0751885
+  "Tilsiter Str. 2, 22049, HH": [
+    53.5884876,
+    10.0754256
   ],
-  "Tilsitter Str., 22049, HH": null,
+  "Tilsiter Str. 2, 22081, HH": [
+    53.5884876,
+    10.0754256
+  ],
+  "Tilsitter Str. 2, 22049, HH": null,
   "Timelostr. 8b, 21407, Deutsch Evern": [
     53.2037578,
     10.4415119
   ],
-  "Tonndorfer Haupstr., 22045, Hamburg": null,
+  "Tonndorfer Haupstr. 69, 22045, Hamburg": null,
   "Tonndorfer Hauptstr. 71, 22043, Hamburg": [
     53.5870002,
     10.1250195
   ],
-  "Traute-Lafrenz-Str., 22297, Hamburg": [
-    53.6181744,
-    10.0047866
+  "Traute-Lafrenz-Str. 99b, 22297, Hamburg": [
+    53.6085735,
+    10.0111747
   ],
   "Tristanweg 4a, 22559, Hamburg": [
     53.5882507,
@@ -2822,17 +2930,17 @@
     53.584693,
     9.964978
   ],
-  "Uhlandstr., 22087, HH": [
-    53.5646403,
-    10.0267856
+  "Uhlandstr. 59, 22087, HH": [
+    53.5651955,
+    10.0303627
   ],
   "Ulzburger Straße 115, 22850, Norderstedt": [
     53.6922046,
     9.9949596
   ],
-  "Uppenhof, 22359, HH": [
-    53.6465825,
-    10.1602789
+  "Uppenhof 5, 22359, HH": [
+    53.6480368,
+    10.1629523
   ],
   "Varendorfer Str. 21, 29553, Bienenbüttel": [
     53.0985124,
@@ -2842,17 +2950,17 @@
     53.550223,
     9.9469532
   ],
-  "Vogt-Wells-Str., 22529, HH": [
-    53.5997476,
-    9.963494
+  "Vogt-Wells-Str. 20, 22529, HH": [
+    53.5997825,
+    9.9606918
   ],
   "Volgerstr. 4, 21335, Lüneburg": [
-    53.243768,
-    10.4082537
+    53.2437358,
+    10.4081771
   ],
-  "Volksdorfer Strasse, 22081, HH": [
-    53.5760291,
-    10.0421955
+  "Volksdorfer Strasse 5, 22081, HH": [
+    53.5766649,
+    10.039338
   ],
   "Von-Morgen-Str. 3, 23564, Lübeck": [
     53.8631801,
@@ -2862,13 +2970,21 @@
     53.259691,
     10.4086335
   ],
+  "Waitzstr. 1, 22609, HH": [
+    53.5594815,
+    9.8866385
+  ],
+  "Waitzstr. 14, 22609, HH": [
+    53.5596951,
+    9.8842098
+  ],
+  "Waitzstr. 16, 22609, HH": [
+    53.5596781,
+    9.8838331
+  ],
   "Waitzstr. 27, 22587, Hamburg": [
     53.5593263,
     9.8821919
-  ],
-  "Waitzstr., 22609, HH": [
-    53.559752,
-    9.8761395
   ],
   "Waitzstr.32, 22607, HH": [
     53.5596022,
@@ -2879,30 +2995,38 @@
     9.8077288
   ],
   "Waldstr. 7, 82166, Gräfelfing": [
-    48.1179807,
-    11.421919
+    48.1176649,
+    11.4221213
   ],
-  "Waldweg, 22393, HH": [
-    53.654939,
-    10.127759
+  "Waldweg 1, 22393, HH": [
+    53.6535261,
+    10.1139281
   ],
   "Wallstr. 40-44, 24768, Rendsburg": [
     54.3038637,
     9.6626932
   ],
   "Walter-Böttcher-Str. 11, 21337, Lüneburg": null,
-  "Wandsbeker Markstr., 22041, HH": null,
-  "Wandsbeker Marktstr., 22041, HH": [
+  "Wandsbeker Markstr. 141, 22041, HH": null,
+  "Wandsbeker Marktstr. 141, 22041, HH": [
+    53.5735133,
+    10.0706729
+  ],
+  "Wandsbeker Marktstr. 48-50, 22041, HH": [
     53.573697,
     10.071882
+  ],
+  "Wandsbeker Marktstr. 73, 22041, HH": [
+    53.5720857,
+    10.0662166
   ],
   "Warnstedtstr. 6, 22525, Hamburg": [
     53.5835435,
     9.9322044
   ],
-  "Wartenau, 22089, HH": [
-    53.5646508,
-    10.0354076
+  "Wartenau 6, 22089, HH": [
+    53.565537,
+    10.0328555
   ],
   "Wedeler Landstr. 16, 22559, Hamburg": [
     53.5819008,
@@ -2926,28 +3050,25 @@
   ],
   "Weidensbaumweg 6, 21029, Hamburg": null,
   "Weidestr. 122a, 22083, Hamburg": [
-    53.5824937,
-    10.0271125
+    53.5826123,
+    10.0273591
   ],
-  "Weiße Rose, 22359, HH": [
-    53.6480497,
-    10.1639074
+  "Weiße Rose 1, 22359, HH": [
+    53.6479863,
+    10.1636295
   ],
   "Wellingsbütteler Markt 1, 22391, Hamburg": [
     53.6407722,
     10.0807986
   ],
-  "Wellingsbüttler Markt, 22391, HH": [
-    53.6410541,
-    10.0810628
+  "Wellingsbüttler Markt 1, 22391, HH": null,
+  "Wellingsbüttler Weg 119, 22397, HH": [
+    53.6416808,
+    10.080595
   ],
-  "Wellingsbüttler Weg, 22397, HH": [
-    53.6450827,
-    10.0860242
-  ],
-  "Wellingsbüttler Weg, 22399, HH": [
-    53.6450827,
-    10.0860242
+  "Wellingsbüttler Weg 119, 22399, HH": [
+    53.6416808,
+    10.080595
   ],
   "Wentorfer Str. 120, 21029, Hamburg": [
     53.4882396,
@@ -2961,29 +3082,29 @@
     53.4879767,
     10.2119693
   ],
-  "Wiesenhöfen, 22359, HH": [
-    53.6481778,
-    10.1680389
+  "Wiesenhöfen 5, 22359, HH": [
+    53.6486108,
+    10.168231
   ],
   "Wiesenkamp 22b, 22359, Hamburg": [
     53.6401592,
     10.1516236
   ],
-  "Wiesenkamp, 22359, HH": [
-    53.6396356,
-    10.1511248
+  "Wiesenkamp 22d, 22359, HH": [
+    53.6403258,
+    10.1515873
   ],
   "Wilhelm-Strauß-Weg 6, 21109, Hamburg": [
-    53.4982842,
-    10.0074186
+    53.4980342,
+    10.0074474
   ],
   "Wilhelmsburger Str. 94, 20539, Hamburg": [
     53.5237076,
     10.0158701
   ],
-  "Willy-Brandt-Str, 20457, HH": [
-    53.5474764,
-    10.0015864
+  "Willy-Brandt-Str 1, 20457, HH": [
+    53.5471394,
+    10.0034649
   ],
   "Wilson Str. 70, 22045, Hamburg": [
     53.5815926,
@@ -2993,29 +3114,45 @@
     53.7488769,
     10.0071822
   ],
-  "Wincklerstr., 20459, HH": [
-    53.5477453,
-    9.9798499
+  "Wincklerstr. 1, 20459, HH": [
+    53.5475661,
+    9.9803353
   ],
   "Winsener Str. 25, 21220, Seevetal": [
     53.3906104,
     10.0454785
   ],
-  "Winterhuder Marktpl., 22299, HH": [
-    53.5942691,
-    10.0001642
+  "Winterhuder Marktpl. 6, 22299, HH": [
+    53.5942716,
+    10.0010504
   ],
-  "Winterhuder Marktplatz, 22299, HH": [
-    53.5945147,
-    9.9998641
+  "Winterhuder Marktplatz 6, 22299, HH": [
+    53.594622,
+    10.0004222
+  ],
+  "Winterhuder Marktplatz 6-7, 22299, HH": [
+    53.5944552,
+    10.0014089
+  ],
+  "Winterhuder Marktplatz 7, 22299, HH": [
+    53.5945264,
+    10.0007418
+  ],
+  "Winterhuder Weg 29, 22085, HH": [
+    53.5743393,
+    10.0213519
+  ],
+  "Winterhuder Weg 76, 22085, HH": [
+    53.574365,
+    10.0232631
   ],
   "Winterhuder Weg 76, 22085, Hamburg": [
     53.574365,
     10.0232631
   ],
-  "Winterhuder Weg, 22085, HH": [
-    53.5754337,
-    10.0211051
+  "Winterhuder Weg 87, 22085, HH": [
+    53.5778837,
+    10.0152922
   ],
   "Wismarsche Str. 393-397, 19055, Schwerin": [
     53.6511909,
@@ -3025,26 +3162,26 @@
     53.5645318,
     9.8167952
   ],
-  "Wohldorfer Damm, 22395, HH": [
-    53.6777493,
-    10.1281492
+  "Wohldorfer Damm 12, 22395, HH": [
+    53.6728688,
+    10.1262731
   ],
-  "Wohldorfer Str., 22081, HH": [
-    53.5770985,
-    10.0397769
+  "Wohldorfer Str. 1, 22081, HH": [
+    53.5773526,
+    10.0390455
+  ],
+  "Wohldorfer Str. 44, 22081, HH": [
+    53.5773615,
+    10.0453177
   ],
   "Wulfsmmoor 20, 22955, Hoisdorf": null,
-  "Wördemannsweg, 225727, HH": [
-    53.5996254,
-    9.9228968
+  "Wördemannsweg 23, 225727, HH": [
+    53.5984445,
+    9.9295193
   ],
   "Ziegenweg 4, 25451, Quickborn": [
-    53.7365164,
-    9.9029975
-  ],
-  "Ziegenweg, 25451, Quickborn": [
-    53.7356671,
-    9.903298
+    53.7364617,
+    9.9033386
   ],
   "Zum Leuchtturm 4, 23730, Neustadt": [
     54.088556,
@@ -3054,28 +3191,24 @@
     53.6221118,
     9.9540615
   ],
-  "Zum Markt, 22459, Hamburg": [
-    53.6224172,
-    9.9540216
+  "Zwischen den Toren 1, 21465, Wentorf": [
+    53.4906989,
+    10.2573453
   ],
-  "Zwischen den Toren, 21465, Wentorf": [
-    53.4898517,
-    10.2568465
+  "Zwischen den Toren 3, 21465, Wentorf": [
+    53.4903662,
+    10.2573464
   ],
   "Öjendorfer Damm 52, 22043, Hamburg": [
     53.571438,
     10.1366437
   ],
-  "Öjendorfer Damm, 22043, Hamburg": [
-    53.5685987,
-    10.1340276
+  "Überseeallee 1, 20457, HH": [
+    53.5417147,
+    9.9967262
   ],
-  "Überseeallee, 20457, HH": [
-    53.5408533,
-    10.0025671
-  ],
-  "Überseeallee, 20457, Hamburg": [
-    53.5408533,
-    10.0025671
+  "Überseeallee 1, 20457, Hamburg": [
+    53.5402895,
+    10.0048894
   ]
 }
