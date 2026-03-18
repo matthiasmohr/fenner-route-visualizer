@@ -1,8 +1,13 @@
-import streamlit as st
-import pandas as pd
-import folium
-from streamlit_folium import st_folium
+import json
+import uuid
+from datetime import datetime, timedelta
 from pathlib import Path
+
+import folium
+import pandas as pd
+import streamlit as st
+from streamlit_cookies_controller import CookieController
+from streamlit_folium import st_folium
 
 import config
 import geocoder
@@ -18,26 +23,96 @@ st.set_page_config(
 )
 
 # ─────────────────────────────────────────────────────────────────────────────
-# Basic Auth
+# Auth – Credentials & Token Store
 # ─────────────────────────────────────────────────────────────────────────────
 
-_AUTH_USER = "logistik"
-_AUTH_PASS = "limbach"
+_AUTH_USER        = "logistik"
+_AUTH_PASS        = "limbach"
+_COOKIE_NAME      = "fenner_session"
+_TOKEN_EXPIRY     = 30          # days
+_TOKEN_FILE       = Path(".auth_tokens.json")
 
 
-def check_auth() -> bool:
-    """Show login form if not authenticated. Returns True if authenticated."""
+def _load_tokens() -> dict:
+    if _TOKEN_FILE.exists():
+        try:
+            return json.loads(_TOKEN_FILE.read_text(encoding="utf-8"))
+        except Exception:
+            return {}
+    return {}
+
+
+def _save_tokens(tokens: dict) -> None:
+    now = datetime.utcnow()
+    # Gleichzeitig abgelaufene Tokens bereinigen
+    tokens = {k: v for k, v in tokens.items()
+              if datetime.fromisoformat(v) > now}
+    _TOKEN_FILE.write_text(json.dumps(tokens, indent=2, ensure_ascii=False))
+
+
+def _is_valid_token(token: str) -> bool:
+    expiry = _load_tokens().get(token)
+    if not expiry:
+        return False
+    return datetime.utcnow() < datetime.fromisoformat(expiry)
+
+
+def _create_token() -> str:
+    token = str(uuid.uuid4())
+    tokens = _load_tokens()
+    tokens[token] = (datetime.utcnow() + timedelta(days=_TOKEN_EXPIRY)).isoformat()
+    _save_tokens(tokens)
+    return token
+
+
+def _revoke_token(token: str) -> None:
+    tokens = _load_tokens()
+    tokens.pop(token, None)
+    _save_tokens(tokens)
+
+
+def check_auth(cc: CookieController) -> bool:
+    """Cookie prüfen → Session setzen, oder Login-Formular zeigen.
+    Gibt True zurück wenn der Benutzer eingeloggt ist.
+
+    Zwei-Phasen-Cookie-Setzung:
+      Phase 1 (Login): Token in session_state["_pending_cookie"] speichern + st.rerun()
+      Phase 2 (nächster Render): cc.set() aufrufen, BEVOR weitere Reruns stattfinden.
+    Das vermeidet den Race-Condition-Bug, bei dem st.rerun() das cc.set()-JS abbricht.
+    """
+
+    # Phase 2: gerade authentifiziert → Cookie jetzt sicher setzen
     if st.session_state.get("authenticated"):
+        pending = st.session_state.pop("_pending_cookie", None)
+        if pending:
+            cc.set(_COOKIE_NAME, pending, max_age=_TOKEN_EXPIRY * 86_400)
         return True
 
+    # Persistentes Cookie prüfen (kann beim ersten Render noch None sein –
+    # die Komponente triggert selbst einen Rerun, sobald das JS fertig ist)
+    token = cc.get(_COOKIE_NAME)
+    if token and _is_valid_token(token):
+        st.session_state["authenticated"] = True
+        st.session_state["_session_token"] = token
+        return True
+
+    # Login-Formular
     st.markdown("## 🔐 Anmeldung")
     with st.form("login_form"):
         username = st.text_input("Benutzername")
         password = st.text_input("Passwort", type="password")
+        remember = st.checkbox(
+            f"Angemeldet bleiben ({_TOKEN_EXPIRY} Tage)", value=True
+        )
         submitted = st.form_submit_button("Anmelden", use_container_width=True)
         if submitted:
             if username == _AUTH_USER and password == _AUTH_PASS:
                 st.session_state["authenticated"] = True
+                if remember:
+                    new_token = _create_token()
+                    # Phase 1: Token merken, Cookie erst im nächsten Render setzen
+                    st.session_state["_pending_cookie"] = new_token
+                    st.session_state["_session_token"] = new_token
                 st.rerun()
             else:
                 st.error("Ungültige Anmeldedaten.")
@@ -260,7 +335,7 @@ def build_map(
 # Sidebar
 # ─────────────────────────────────────────────────────────────────────────────
 
-def render_sidebar(all_tours: list) -> tuple:
+def render_sidebar(all_tours: list, cc: CookieController) -> tuple:
     """Render sidebar and return (sheet_id, gid, selected_days, selected_tours, show_lines, color_mode)."""
     st.sidebar.title("⚙️ Einstellungen")
 
@@ -346,6 +421,10 @@ def render_sidebar(all_tours: list) -> tuple:
     # ── Logout ────────────────────────────────────────────────────────────────
     st.sidebar.markdown("---")
     if st.sidebar.button("🚪 Abmelden", use_container_width=True):
+        token = st.session_state.pop("_session_token", None)
+        if token:
+            _revoke_token(token)
+            cc.remove(_COOKIE_NAME)
         st.session_state["authenticated"] = False
         st.rerun()
 
@@ -357,8 +436,11 @@ def render_sidebar(all_tours: list) -> tuple:
 # ─────────────────────────────────────────────────────────────────────────────
 
 def main():
+    # Cookie-Controller einmal pro Skript-Run erstellen
+    cc = CookieController()
+
     # Auth gate
-    if not check_auth():
+    if not check_auth(cc):
         return
 
     st.title("🗺️ Fenner Heidrich Routenvisualisierer")
@@ -375,7 +457,7 @@ def main():
     if df_raw.empty:
         st.warning("Keine Daten geladen.")
         # Still render minimal sidebar so sheet config is accessible
-        render_sidebar([])
+        render_sidebar([], cc)
         return
 
     # Remove rows with no Tour-ID (empty header rows etc.)
@@ -388,7 +470,7 @@ def main():
     tour_colors = assign_tour_colors(tuple(all_tours))
 
     # ── Full sidebar (with filters) ───────────────────────────────────────────
-    sheet_id, gid, selected_days, selected_tours, show_lines, color_mode = render_sidebar(all_tours)
+    sheet_id, gid, selected_days, selected_tours, show_lines, color_mode = render_sidebar(all_tours, cc)
 
     # Persist sheet config in session state so it survives reruns
     st.session_state["sheet_id"] = sheet_id

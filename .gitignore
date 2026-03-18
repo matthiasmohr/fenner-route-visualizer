@@ -31,5 +31,8 @@ Thumbs.db
 # Umgebungsvariablen
 .env
 
+# Auth-Token-Datei (Session-Tokens, nie committen)
+.auth_tokens.json
+
 # AI
 .claude/
