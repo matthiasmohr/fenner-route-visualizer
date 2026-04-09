@@ -180,9 +180,9 @@ def make_popup_html(row) -> str:
     name = row.get(config.COL_NAME, "") or "–"
     tour = row.get(config.COL_TOUR_ID, "") or "–"
     zeit = row.get(config.COL_TIME, "") or "–"
-    zeit_range = row.get(config.COL_TIME_RANGE, "") or ""
-    firma = row.get(config.COL_FIRMA, "") or "–"
-    lab_days = row.get(config.COL_LAB_DAYS, "") or "–"
+    zeit_range = row.get(config.COL_TIME_RANGE, "") or "" if config.COL_TIME_RANGE else ""
+    kuerzel = row.get(config.COL_FIRMA, "") or ""
+    lab_days = row.get(config.COL_LAB_DAYS, "") or "" if config.COL_LAB_DAYS else ""
     addr_info = row.get(config.COL_ADDRESS_INFO, "") or ""
 
     street = geocoder.build_street(row)
@@ -195,13 +195,15 @@ def make_popup_html(row) -> str:
     rows_data = [
         ("Tour", tour),
         ("Abholzeit", zeit),
-        ("Firma", firma),
-        ("Labortage", lab_days),
         ("Aktive Tage", active_days_str),
         ("Adresse", address),
     ]
+    if kuerzel:
+        rows_data.append(("Kürzel", kuerzel))
+    if lab_days:
+        rows_data.append(("Labortage", lab_days))
     if zeit_range:
-        rows_data.append(("Zeitspanne", zeit_range))
+        rows_data.append(("Soll-Zeit", zeit_range))
     if addr_info:
         rows_data.append(("Info", addr_info))
 
@@ -277,7 +279,8 @@ def build_map(
         for tour_id, group in df_geo.groupby(config.COL_TOUR_ID, sort=False):
             if color_mode == config.COLOR_MODE_FIRMA:
                 # Line color = majority of stops in this tour (Fenner vs. Heidrich)
-                n_fenner = group[config.COL_FIRMA].str.strip().ne("").sum()
+                firma_col = config.COL_FIRMA if config.COL_FIRMA and config.COL_FIRMA in group.columns else None
+                n_fenner = group[firma_col].str.strip().ne("").sum() if firma_col else 0
                 line_color = config.FENNER_COLOR if n_fenner >= len(group) / 2 else config.HEIDRICH_COLOR
             else:
                 line_color = tour_colors.get(tour_id, "#888888")
@@ -567,7 +570,7 @@ def main():
                     config.COL_CITY,
                     config.COL_ADDRESS_INFO,
                 ]
-                if c in df_missing_all.columns
+                if c and c in df_missing_all.columns
             ]
             st.dataframe(
                 df_missing_all[missing_cols].sort_values(config.COL_TOUR_ID).reset_index(drop=True),
@@ -590,7 +593,7 @@ def main():
                 config.COL_LAB_DAYS,
                 config.COL_ADDRESS_INFO,
             ]
-            if c in df_filtered.columns
+            if c and c in df_filtered.columns
         ]
         # Sort table by Tour-ID, then by Zeit (chronological)
         df_table = df_filtered[display_cols].copy()
