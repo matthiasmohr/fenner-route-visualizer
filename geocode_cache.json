@@ -59,7 +59,7 @@
     53.6078888,
     10.0054264
   ],
-  "Alsterdorfer Str. 284 = Depot\n (Sydneystr. 24) 284, 22297, Hamburg": null,
+  "Alsterdorfer Str. 284 = Depot\n (Sydneystr. 24) 284, 22297, Hamburg": [53.24263,10.4129737],
   "Alstertor 18, 20095, Hamburg": [
     53.5528192,
     9.9972635
@@ -236,7 +236,7 @@
     53.4771438,
     10.1822584
   ],
-  "An d. Wittenberger Bahn 1, 21337, Lüneburg": null,
+  "An d. Wittenberger Bahn 1, 21337, Lüneburg": [53.24263,10.4129737],
   "An der Bahn 1, 25336, Elmshorn": [
     53.748837,
     9.6601767
@@ -805,7 +805,7 @@
     53.5553477,
     9.9903329
   ],
-  "Colonnanden 36, 20354, Hamburg": null,
+  "Colonnanden 36, 20354, Hamburg": [53.24263,10.4129737],
   "Colonnanden 51, 20354, Hamburg": [
     53.5578056,
     9.9871649
@@ -950,7 +950,7 @@
     53.7080018,
     10.1103432
   ],
-  "Dörnbek 36, 24616, Brockstedt": null,
+  "Dörnbek 36, 24616, Brockstedt": [53.24263,10.4129737],
   "Ebeltofter Str. 24-26, 23669, Timmendorfer Strand": [
     53.9961846,
     10.7641476
@@ -1051,7 +1051,7 @@
     53.5840001,
     9.9839534
   ],
-  "Eppendorfer Baum 3 (Hochallee 118) 3, 20249, Hamburg": null,
+  "Eppendorfer Baum 3 (Hochallee 118) 3, 20249, Hamburg": [53.24263,10.4129737],
   "Eppendorfer Baum 33, 20249, Hamburg": [
     53.5841752,
     9.982315
@@ -1116,7 +1116,7 @@
     53.5959574,
     9.9848949
   ],
-  "Erik-Blumenfeld-Platz 17 (1. OG) 17, 22587, Hamburg": null,
+  "Erik-Blumenfeld-Platz 17 (1. OG) 17, 22587, Hamburg": [53.24263,10.4129737],
   "Erik-Blumenfeld-Platz 27A, 22587, Hamburg": [
     53.5637356,
     9.8132687
@@ -1221,7 +1221,7 @@
     53.5333406,
     9.8760717
   ],
-  "Flagentwiete 42, 22457, Hamburg": null,
+  "Flagentwiete 42, 22457, Hamburg": [53.24263,10.4129737],
   "Fleetplatz 3, 21035, Hamburg": [
     53.4894867,
     10.1590286
@@ -1358,7 +1358,7 @@
     52.3721513,
     9.7401707
   ],
-  "Gerwigstr. #VALUE!, 76131, Karlsruhe": null,
+  "Gerwigstr. #VALUE!, 76131, Karlsruhe": [49.007387,8.4353559],
   "Glindersweg 80, 21029, Hamburg": [
     53.4857786,
     10.2360022
@@ -1715,7 +1715,7 @@
     53.652519,
     10.0931965
   ],
-  "Hegestieg 1, Hegestr. 1 ? ?, 20249, Hamburg": null,
+  "Hegestieg 1, Hegestr. 1 ? ?, 20249, Hamburg": [53.5855646,9.9830363],
   "Hegestr. 64, 20249, Hamburg": [
     53.5842365,
     9.9838974
@@ -2000,7 +2000,7 @@
     53.6472234,
     10.1681983
   ],
-  "Holzdamm #VALUE!, 20099, Hamburg": null,
+  "Holzdamm #VALUE!, 20099, Hamburg": [53.556377,10.002623],
   "Hopfenmarkt 31, 20354, HH": [
     53.547914,
     9.9894803
@@ -2673,7 +2673,7 @@
     53.5415759,
     10.1602011
   ],
-  "Möllner Landstr. 122 (Druckerstr. 7) 122, 22117, Hamburg": null,
+  "Möllner Landstr. 122 (Druckerstr. 7) 122, 22117, Hamburg": [53.5382721,10.1222328],
   "Möllner Landstr. 27, 22111, Hamburg": [
     53.539688,
     10.1068072
@@ -2730,7 +2730,7 @@
     53.5512308,
     10.0036795
   ],
-  "Mörkenstr. 43-47 (Apoth-Depot) Virchow Str. 15, 22767, Hamburg": null,
+  "Mörkenstr. 43-47 (Apoth-Depot) Virchow Str. 15, 22767, Hamburg": [53.5493874,9.9436819],
   "Mörkenstr. 47, 22767, Hamburg": [
     53.5492484,
     9.9437556
@@ -2859,7 +2859,7 @@
     53.5547061,
     9.8444069
   ],
-  "Nienstedter Marktplatz 18, 22609, Hamburg": null,
+  "Nienstedter Marktplatz 18, 22609, Hamburg": [53.5526354,9.8445241],
   "Nikolaus-Otto-Str, 7, 21648, Stade": [
     53.5794587,
     9.4903121
@@ -2912,7 +2912,7 @@
     53.5611289,
     9.8150655
   ],
-  "Op´n Hainhold 47f, 22589, Hamburg": null,
+  "Op´n Hainhold 47f, 22589, Hamburg": [53.5818174,9.80529],
   "Orchideenstieg 12, 22297, Hamburg": [
     53.6051063,
     9.9912736
@@ -3041,7 +3041,7 @@
     53.5539557,
     9.9623063
   ],
-  "Paulstr. #VALUE!, 20095, Hamburg": null,
+  "Paulstr. #VALUE!, 20095, Hamburg": [53.551088,9.9966015],
   "Pezolddamm 141, 22175, HH": [
     53.6248488,
     10.1131672
@@ -3526,7 +3526,7 @@
     53.5564615,
     10.0430123
   ],
-  "Simmrockstr. 190, 22587, Hamburg": null,
+  "Simmrockstr. 190, 22587, Hamburg": [53.576227,9.8215378],
   "Sommerland 55, 24576, Bad Bramstedt": [
     53.9136407,
     9.8795323
@@ -3567,7 +3567,7 @@
     53.5523912,
     10.0035917
   ],
-  "Sportallee #VALUE!, 22335, Hamburg": null,
+  "Sportallee #VALUE!, 22335, Hamburg": [53.6184529,10.0010128],
   "St. Lambertiplatz 6, 21335, Lüneburg": [
     53.2454156,
     10.4023451
@@ -3616,7 +3616,7 @@
     53.5549096,
     10.0145572
   ],
-  "Steinfurther Str. 56, 48149, Münster": null,
+  "Steinfurther Str. 56, 48149, Münster": [51.9714189,7.6098207],
   "Steinstr. 7, 20095, Hamburg": [
     53.5499249,
     10.0038682
@@ -3673,7 +3673,7 @@
     53.5822768,
     9.7775459
   ],
-  "Süderfeldstr. #VALUE!, 20251, Hamburg": null,
+  "Süderfeldstr. #VALUE!, 20251, Hamburg": [53.5938571,9.970049],
   "Süderquerweg 337, 21037, Hamburg": [
     53.4182946,
     10.15061
@@ -3866,7 +3866,7 @@
     53.5766649,
     10.039338
   ],
-  "Von Semnitz Ring 13, 21423, Winsen (Luhe)": null,
+  "Von Semnitz Ring 13, 21423, Winsen (Luhe)": [53.3617876,10.2092144],
   "Von-Morgen-Str. 3, 23564, Lübeck": [
     53.8631801,
     10.7109343
@@ -4051,7 +4051,7 @@
     53.6403258,
     10.1515873
   ],
-  "Wiesingerweg 25 / 37? 25, 20253, Hamburg": null,
+  "Wiesingerweg 25 / 37? 25, 20253, Hamburg": [53.5819651,9.9608166],
   "Wilhelm-Strauß-Weg 6, 21109, Hamburg": [
     53.4980342,
     10.0074474
@@ -4060,7 +4060,7 @@
     53.5237076,
     10.0158701
   ],
-  "Willy-Brand-Str. 2, 21335, Lüneburg": null,
+  "Willy-Brand-Str. 2, 21335, Lüneburg": [53.24263,10.4129737],
   "Willy-Brandt-Str 1, 20457, HH": [
     53.5471394,
     10.0034649
